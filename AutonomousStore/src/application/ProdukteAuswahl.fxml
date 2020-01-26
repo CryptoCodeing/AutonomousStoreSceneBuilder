@@ -8,14 +8,14 @@
 
 <AnchorPane prefHeight="907.0" prefWidth="1311.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProdAusController">
    <children>
-      <AnchorPane layoutX="6.0" layoutY="6.0" prefHeight="495.0" prefWidth="1311.0">
+      <AnchorPane layoutX="3.0" layoutY="14.0" prefHeight="495.0" prefWidth="1311.0">
          <children>
             <ImageView fitHeight="266.0" fitWidth="438.0" layoutX="-7.0" layoutY="-8.0" onMouseClicked="#btnLottoSpielen_clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../bin/Images/swiss-lotto-im-spielständer-WEB-1500x1125.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="298.0" fitWidth="410.0" layoutX="895.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="255.0" fitWidth="410.0" layoutX="896.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../bin/Images/ChipsundWellnesRegalAmazonGo.jpg" />
                </image>
@@ -25,10 +25,10 @@
                   <Image url="@../../bin/Images/zigarettenregal.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="lblInfoProdAus" layoutX="24.0" layoutY="279.0" prefHeight="65.0" prefWidth="297.0" text="Image Clicked" />
-            <Button fx:id="btnLottoSpielen" layoutX="185.0" layoutY="279.0" mnemonicParsing="false" onAction="#btnLottoSpielen_clicked" text="Lotto Spielen" />
-            <Button layoutX="596.0" layoutY="279.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="1048.0" layoutY="287.0" mnemonicParsing="false" text="Button" />
+            <Label fx:id="lblInfoProdAus" layoutX="539.0" layoutY="416.0" prefHeight="34.0" prefWidth="338.0" text="INFO" />
+            <Button fx:id="btnLottoSpielen" layoutX="106.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnLottoSpielen_clicked" prefHeight="34.0" prefWidth="129.0" text="Lotto Spielen" />
+            <Button fx:id="btnZigarettenKaufen" layoutX="558.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnZigarettenKaufen_clicked" prefHeight="34.0" prefWidth="129.0" text="Zigaretten Kaufen" />
+            <Button fx:id="btnLebensmittelKaufen" layoutX="1037.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnLebensmittelKaufen_clicked" prefHeight="34.0" prefWidth="129.0" text="Lebensmittel Kaufen" />
          </children>
       </AnchorPane>
    </children>
