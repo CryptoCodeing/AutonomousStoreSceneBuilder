@@ -5,7 +5,7 @@
 	public class SQLDBReadWrite {
 	    // Connect to your database.
 	    // Replace server name, username, and password with your credentials
-	    public static void InsertKundendaten(String tVorname,String tNachname,String tAdresse, Integer iPLZ, String tOrt) { //, Date dGeburtsdatum) {
+	    public static void InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt) { //, Date dGeburtsdatum) {
 	        
 	    	String connectionUrl =
 	                "jdbc:sqlserver://85.93.91.60\\SQL2019;"
@@ -19,8 +19,8 @@
 	        
 	        ResultSet resultSet = null;
 	        
-	        String insertSql = "INSERT INTO Kundendaten (tVorname,tNachname,tAdresse,iPLZ,tOrt) VALUES " //,dGeburtsdatum
-	                + "('"+tVorname+ "','"+tNachname+ "','"+tAdresse+ "','"+iPLZ+ "','"+tOrt+ "');"; //,'"+dGeburtsdatum+ "'
+	        String insertSql = "INSERT INTO Kundendaten (tVorname,tNachname,tAdresse,tPLZ,tOrt) VALUES " //,dGeburtsdatum
+	                + "('"+tVorname+ "','"+tNachname+ "','"+tAdresse+ "','"+tPLZ+ "','"+tOrt+ "');"; //,'"+dGeburtsdatum+ "'
 	        
 
 	        try (Connection connection = DriverManager.getConnection(connectionUrl);
