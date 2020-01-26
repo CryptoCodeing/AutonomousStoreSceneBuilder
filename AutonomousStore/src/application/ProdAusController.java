@@ -7,14 +7,14 @@ import javafx.scene.image.ImageView;
 public class ProdAusController {
 
 	@FXML
-	private Label lblInfo ;
+	private Label lblInfoProdAus ;
 
 	    @FXML
 	    private ImageView imgZigaretten;
 
 	    @FXML
-	    void imgZigaretten_clicked(ActionEvent event) {
-	    	lblInfo.setText("Hello WOrld");
+	    void btnLottoSpielen_clicked (ActionEvent event) {
+	    	lblInfoProdAus.setText("Hello World");
 	    }
 
 	}

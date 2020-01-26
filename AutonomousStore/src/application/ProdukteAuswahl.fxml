@@ -10,7 +10,7 @@
    <children>
       <AnchorPane layoutX="6.0" layoutY="6.0" prefHeight="495.0" prefWidth="1311.0">
          <children>
-            <ImageView fitHeight="266.0" fitWidth="438.0" layoutX="-7.0" layoutY="-8.0" onMouseClicked="#imgZigaretten_clicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="266.0" fitWidth="438.0" layoutX="-7.0" layoutY="-8.0" onMouseClicked="#btnLottoSpielen_clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../bin/Images/swiss-lotto-im-spielständer-WEB-1500x1125.jpg" />
                </image>
@@ -20,13 +20,13 @@
                   <Image url="@../../bin/Images/ChipsundWellnesRegalAmazonGo.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="imgZigaretten" fitHeight="292.0" fitWidth="534.0" layoutX="355.0" layoutY="-8.0" onMouseClicked="#imgZigaretten_clicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgZigaretten" fitHeight="292.0" fitWidth="534.0" layoutX="355.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../bin/Images/zigarettenregal.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="lblInfo" layoutX="24.0" layoutY="279.0" prefHeight="65.0" prefWidth="297.0" text="Image Clicked" />
-            <Button layoutX="185.0" layoutY="279.0" mnemonicParsing="false" text="Button" />
+            <Label fx:id="lblInfoProdAus" layoutX="24.0" layoutY="279.0" prefHeight="65.0" prefWidth="297.0" text="Image Clicked" />
+            <Button fx:id="btnLottoSpielen" layoutX="185.0" layoutY="279.0" mnemonicParsing="false" onAction="#btnLottoSpielen_clicked" text="Lotto Spielen" />
             <Button layoutX="596.0" layoutY="279.0" mnemonicParsing="false" text="Button" />
             <Button layoutX="1048.0" layoutY="287.0" mnemonicParsing="false" text="Button" />
          </children>
