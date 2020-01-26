@@ -7,14 +7,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="723.0" prefWidth="48.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.ZigarettenController">
+<AnchorPane prefHeight="709.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ZigarettenController">
    <children>
       <AnchorPane prefHeight="653.0" prefWidth="573.0">
          <children>
             <Label layoutX="14.0" layoutY="14.0" text="Bitte wählen Sie Ihr Produkt">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <ImageView fitHeight="218.0" fitWidth="205.0" layoutX="323.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
@@ -43,6 +42,12 @@
             <CheckBox layoutX="323.0" layoutY="310.0" mnemonicParsing="false" text="Camel Filter CHF 8.20" />
          </children>
       </AnchorPane>
-      <Button layoutX="382.0" layoutY="671.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="177.0" text="Zum Warenkorb hinzufügen" />
+      <Button fx:id="btnZigarettenWarenkorbHinzu" layoutX="373.0" layoutY="650.0" mnemonicParsing="false" onAction="#btnZigarettenWarenkorbHinzu_clicked" prefHeight="38.0" prefWidth="177.0" text="Zum Warenkorb hinzufügen" />
+      <Label layoutX="14.0" layoutY="659.0" text="Stückzahl pro Auswahl">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtMengeproAuswahl" layoutX="180.0" layoutY="667.0" prefHeight="25.0" prefWidth="30.0" />
    </children>
 </AnchorPane>
