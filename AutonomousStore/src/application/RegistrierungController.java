@@ -39,10 +39,14 @@ public class RegistrierungController {
     	String tAdresse = txtAdresse.getText();
     	String tOrt = txtOrt.getText();
     	String tPLZ = txtPLZ.getText();
-    	Date dGeburtsdatum = (Date) dpickerGeburtsdatum.getUserData();
+    	//java.sql.Date dGeburtsdatum =  (java.sql.Date) dpickerGeburtsdatum.getUserData();
    
     	
-    	SQLDBReadWrite.InsertKundendaten(tVorname,tNachname,tAdresse,tOrt,tPLZ);
+    	SQLDBReadWrite.InsertKundendaten(tVorname,tNachname,tAdresse,tPLZ,tOrt);
+    	
+    	
+    	lblInfo.setText("Ihre Registrierung war erfolgreich");
+    	
     }
 
 }

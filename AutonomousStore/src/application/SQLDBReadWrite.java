@@ -6,8 +6,10 @@
 	    // Connect to your database.
 	    // Replace server name, username, and password with your credentials
 	    public static void InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt) { //, Date dGeburtsdatum) {
-	        
-	    	String connectionUrl =
+	    	ResultSet resultSet = null;
+	    	String tinsertSql;
+	    	
+	    	String tconnectionUrl =
 	                "jdbc:sqlserver://85.93.91.60\\SQL2019;"
 	                        + "database=z_HWZAmazonGo;"
 	                        + "user=AmazonGo_User;"
@@ -17,22 +19,24 @@
 	                        + "loginTimeout=30;";
 	        
 	        
-	        ResultSet resultSet = null;
 	        
-	        String insertSql = "INSERT INTO Kundendaten (tVorname,tNachname,tAdresse,tPLZ,tOrt) VALUES " //,dGeburtsdatum
+	        
+	       tinsertSql  = "INSERT INTO Kundendaten (tVorname,tNachname,tAdresse,tPLZ,tOrt) VALUES " //,dGeburtsdatum
 	                + "('"+tVorname+ "','"+tNachname+ "','"+tAdresse+ "','"+tPLZ+ "','"+tOrt+ "');"; //,'"+dGeburtsdatum+ "'
 	        
 
-	        try (Connection connection = DriverManager.getConnection(connectionUrl);
-	                PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS);) {
-
-	            prepsInsertProduct.execute();
-	            // Retrieve the generated key from the insert.
+	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
+	                PreparedStatement prepsInsertProduct = connection.prepareStatement(tinsertSql, Statement.RETURN_GENERATED_KEYS);) { 
+	        		
+	        		prepsInsertProduct.execute();
+	                
+	            
+	            // Inserted ID abfüllen
 	            resultSet = prepsInsertProduct.getGeneratedKeys();
 
-	            // Print the ID of the inserted row.
+	            // anzeige Inserted ID in Konsole
 	            while (resultSet.next()) {
-	                System.out.println("Generated: " + resultSet.getString(1));
+	                System.out.println("Generated ID: " + resultSet.getString(1));
 	            }
 	        }
 	        

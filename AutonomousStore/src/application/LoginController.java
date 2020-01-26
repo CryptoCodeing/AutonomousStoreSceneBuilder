@@ -17,13 +17,6 @@ public class LoginController {
 
 	    @FXML
 	    void btnAnmelden_clicked (ActionEvent event) {
-
-	    	
-	    	
-  String tKundeneingabe = txtKundennummer.getText();
- 
-  
-
-	    }
+}
 
 }

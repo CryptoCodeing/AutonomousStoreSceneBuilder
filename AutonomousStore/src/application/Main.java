@@ -33,12 +33,7 @@ public class Main extends Application
 	
 	
 	public static void main(String[] args) {
-		launch(args);
-		
-		//SQLDBReadWrite oDBWrite = new SQLDBReadWrite();
-		
-		//SQLDBReadWrite.InsertKundendaten("Test","Des","Main",8989,"Test");
-		
+		launch(args);	
 	}
 	
 	
