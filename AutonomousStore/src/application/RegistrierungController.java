@@ -1,4 +1,7 @@
 package application;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 import javafx.event.*;
@@ -39,10 +42,12 @@ public class RegistrierungController {
     	String tAdresse = txtAdresse.getText();
     	String tOrt = txtOrt.getText();
     	String tPLZ = txtPLZ.getText();
-    	//java.sql.Date dGeburtsdatum =  (java.sql.Date) dpickerGeburtsdatum.getUserData();
-   
+    	LocalDate dGeburtsdatum = dpickerGeburtsdatum.getValue();
+    		
     	
-    	SQLDBReadWrite.InsertKundendaten(tVorname,tNachname,tAdresse,tPLZ,tOrt);
+ 
+    	
+    	SQLDBReadWrite.InsertKundendaten(tVorname,tNachname,tAdresse,tPLZ,tOrt,dGeburtsdatum);
     	
     	
     	lblInfo.setText("Ihre Registrierung war erfolgreich");

@@ -1,11 +1,12 @@
 	package application;	
 
 	import java.sql.*;
+import java.time.LocalDate;
 
 	public class SQLDBReadWrite {
 	    // Connect to your database.
 	    // Replace server name, username, and password with your credentials
-	    public static void InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt) { //, Date dGeburtsdatum) {
+	    public static void InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt, LocalDate dGeburtsdatum)  {
 	    	ResultSet resultSet = null;
 	    	String tinsertSql;
 	    	
@@ -18,8 +19,8 @@
 	                        + "trustServerCertificate=false;"
 	                        + "loginTimeout=30;";	        	        	        
 	        
-	       tinsertSql  = "INSERT INTO Kundendaten (tVorname,tNachname,tAdresse,tPLZ,tOrt) VALUES " //,dGeburtsdatum
-	                + "('"+tVorname+ "','"+tNachname+ "','"+tAdresse+ "','"+tPLZ+ "','"+tOrt+ "');"; //,'"+dGeburtsdatum+ "'       
+	       tinsertSql  = "INSERT INTO Kundendaten (tVorname,tNachname,tAdresse,tPLZ,tOrt,dGeburtsdatum) VALUES " //
+	                + "('"+tVorname+ "','"+tNachname+ "','"+tAdresse+ "','"+tPLZ+ "','"+tOrt+ "','"+dGeburtsdatum+ "' );"; //      
 
 	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
 	                PreparedStatement prepsInsertProduct = connection.prepareStatement(tinsertSql, Statement.RETURN_GENERATED_KEYS);) { 
