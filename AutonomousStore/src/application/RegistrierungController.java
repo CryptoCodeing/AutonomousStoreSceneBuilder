@@ -33,7 +33,7 @@ public class RegistrierungController {
     @FXML
     private Button btnBenutzerkontoAnlegen;
 
-
+//TEST
     @FXML
     void btnBenutzerkontoAnlegen_clicked(ActionEvent event) {
 
