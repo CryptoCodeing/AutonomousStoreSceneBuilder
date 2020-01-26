@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="pnlLogin" prefHeight="477.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+    
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="353.0">
+         <children>
+            <TextField fx:id="txtKundennummer" layoutX="14.0" layoutY="44.0" promptText="Bitte Scannen Sie den QR Code" />
+            <Label layoutX="14.0" layoutY="14.0" text="Kundennummer (QR-Code einlesen) 42 für tests" />
+            <Button fx:id="btnAnmelden" layoutX="197.0" layoutY="44.0" mnemonicParsing="false" onAction="#btnAnmelden_clicked" text="Anmelden" />
+            <Button fx:id="btnRegistrierung" layoutX="197.0" layoutY="75.0" mnemonicParsing="false" text="Registrieren" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
