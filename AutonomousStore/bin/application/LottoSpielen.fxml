@@ -34,5 +34,6 @@
             <Image url="@../../bin/Images/swisslottoLogo.png" />
          </image>
       </ImageView>
+      <Button fx:id="btnZurueckZUProdAusVONLotto" layoutX="9.0" layoutY="311.0" mnemonicParsing="false" onAction="#btnZurueckZUProdAusVONLotto_clicked" prefHeight="33.0" prefWidth="176.0" text="Zurück zur Produkte Auswahl" />
    </children>
 </AnchorPane>
