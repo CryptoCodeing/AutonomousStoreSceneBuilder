@@ -40,6 +40,7 @@
             <CheckBox layoutX="29.0" layoutY="611.0" mnemonicParsing="false" text="Lucky Strike Blau CHF 8.10" />
             <CheckBox layoutX="323.0" layoutY="611.0" mnemonicParsing="false" text="Marlboro Rot CHF 9.00" />
             <CheckBox layoutX="323.0" layoutY="310.0" mnemonicParsing="false" text="Camel Filter CHF 8.20" />
+            <Button fx:id="btnZurueckZuProdAusVONZigare" layoutX="339.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnZurueckZuProdAusVONZigare_clicked" text="Zurück zur Produkte Auswahl" />
          </children>
       </AnchorPane>
       <Button fx:id="btnZigarettenWarenkorbHinzu" layoutX="373.0" layoutY="650.0" mnemonicParsing="false" onAction="#btnZigarettenWarenkorbHinzu_clicked" prefHeight="38.0" prefWidth="177.0" text="Zum Warenkorb hinzufügen" />
