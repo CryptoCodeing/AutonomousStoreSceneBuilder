@@ -22,6 +22,8 @@ import java.time.LocalDate;
 	       tinsertSql  = "INSERT INTO Kundendaten (tVorname,tNachname,tAdresse,tPLZ,tOrt,dGeburtsdatum) VALUES " //
 	                + "('"+tVorname+ "','"+tNachname+ "','"+tAdresse+ "','"+tPLZ+ "','"+tOrt+ "','"+dGeburtsdatum+ "' );"; //      
 
+	       
+	       
 	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
 	                PreparedStatement prepsInsertProduct = connection.prepareStatement(tinsertSql, Statement.RETURN_GENERATED_KEYS);) { 
 	        		
@@ -41,4 +43,44 @@ import java.time.LocalDate;
 	        		e.printStackTrace();
 	        }
 	    }
+	    
+	    //Check ob Kudnen ID Vorhanden ist für Login 
+	    public static void AbfrageKundenID(Integer iKundenummer)
+	    {
+	    	ResultSet resultSet = null;
+	    	String tselectSQL;
+	    	
+	    	String tconnectionUrl =
+	                "jdbc:sqlserver://85.93.91.60\\SQL2019;"
+	                        + "database=z_HWZAmazonGo;"
+	                        + "user=AmazonGo_User;"
+	                        + "password=showmesql;"
+	                        + "encrypt=false;"
+	                        + "trustServerCertificate=false;"
+	                        + "loginTimeout=30;";
+	    	
+	    	// SQL Query 
+	    	tselectSQL =    " SELECT iKundennummer " +
+	    					" FROM Kundendaten" +
+	    					" WHERE iKundennummer = " + iKundenummer.toString();
+	    		    
+	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
+	        PreparedStatement selectKundeID = connection.prepareStatement(tselectSQL, Statement.RETURN_GENERATED_KEYS);) 
+	        {
+	        	selectKundeID.execute();
+	        
+	        	
+
+	        	
+	        	
+	        }
+	        	catch (SQLException e) {
+	        		e.printStackTrace();
+	        }
+	    }
+	    
+
+	    	
 	}
+	    
+	

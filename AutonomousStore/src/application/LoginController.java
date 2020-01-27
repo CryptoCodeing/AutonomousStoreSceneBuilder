@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -21,7 +22,18 @@ public class LoginController {
 	    private TextField txtKundennummer;
 
 	    @FXML
+	    private Label lblInfo;
+	    
+	    @FXML
 	    void btnAnmelden_clicked (ActionEvent event) {
+	    	 
+
+	  
+		    	//Check ob Kunden id geschrieben wurde
+		    	Integer iKundenummer = txtKundennummer.getLength();		    	
+	    	SQLDBReadWrite.AbfrageKundenID(iKundenummer);
+	    	
+	    	
 	    	try {
 				
 	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
