@@ -30,21 +30,30 @@ public class LoginController {
 
 	  
 		    	//Check ob Kunden id geschrieben wurde
-		    	Integer iKundenummer = txtKundennummer.getLength();		    	
-	    	SQLDBReadWrite.AbfrageKundenID(iKundenummer);
+		    	Integer iKundenummer = Integer.parseInt(txtKundennummer.getText());		    	
+	    	    //SQLDBReadWrite.AbfrageKundenID(iKundenummer);
+		    	boolean valid = true;
+	    	    
 	    	
 	    	
 	    	try {
-				
+				if(SQLDBReadWrite.AbfrageKundenID(iKundenummer))
+	    	    
+				{
 	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
 				Parent root = FXMLLoader.load(getClass().getResource("ProdukteAuswahl.fxml"));
 				Scene scene = new Scene(root);
 				StageRegist.setScene(scene);
 				StageRegist.show();
+				}
+				else {
+		    		System.out.println("got u hacker ");
+				}
 			} 
 			
 			catch(Exception e) {
-				e.printStackTrace();
+				//e.printStackTrace();
+				System.out.println("got u hacker ");
 			}
 }
 	    @FXML

@@ -27,7 +27,8 @@ public class RegistrierungController {
 
     @FXML
     private Label lblInfo;
-    @FXML
+
+	@FXML
     private TextField txtVorname;
     @FXML
     private TextField txtNachname;
@@ -109,7 +110,7 @@ public class RegistrierungController {
     	
     	if(dGeburtsdatum == null)
     	{
-    		lblInfo.setText("Fehler: Bitte erfassen ein Geburtsdatum!");
+    		lblInfo.setText("Fehler: Bitte erfassen Sie ein Geburtsdatum!");
     		lblInfo.setTextFill(javafx.scene.paint.Color.RED);	
     		valid = false;
     		return;
@@ -125,7 +126,13 @@ public class RegistrierungController {
     	
     }
     
+    public Label getLblInfo() {
+		return lblInfo;
+	}
 
+	public void setLblInfo(Label lblInfo) {
+		this.lblInfo = lblInfo;
+	}
 
 }
   
