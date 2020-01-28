@@ -37,6 +37,7 @@ try {
 				Scene scene = new Scene(root);
 				StageRegist.setScene(scene);
 				StageRegist.show();
+				
 			} 
 			
 			catch(Exception e) {
@@ -53,6 +54,9 @@ try {
 				Scene scene = new Scene(root);
 				StageRegist.setScene(scene);
 				StageRegist.show();
+				
+				// TODO Alterscheck
+				
 			} 
 			
 			catch(Exception e) {

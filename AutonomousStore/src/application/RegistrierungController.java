@@ -93,7 +93,6 @@ public class RegistrierungController {
     	}
     	
     	
-    	
     	if(dGeburtsdatum == null)
     	{
     		lblInfo.setText("Fehler: Bitte erfassen ein Geburtsdatum!");

@@ -4,19 +4,23 @@
 import java.time.LocalDate;
 
 	public class SQLDBReadWrite {
+		
+		// SQL Connection String Globale static variable, für alle Methoden zugänglich
+		static String tconnectionUrl =
+                "jdbc:sqlserver://85.93.91.60\\SQL2019;"
+                        + "database=z_HWZAmazonGo;"
+                        + "user=AmazonGo_User;"
+                        + "password=showmesql;"
+                        + "encrypt=false;"
+                       + "trustServerCertificate=false;"
+                        + "loginTimeout=30;";
+		
 	    public static int InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt, LocalDate dGeburtsdatum)  {
 	    	ResultSet resultSet = null;
 	    	String tinsertSql;
 	    	Integer iKundennummer = 0;
 	    	
-	    	String tconnectionUrl =
-	                "jdbc:sqlserver://85.93.91.60\\SQL2019;"
-	                        + "database=z_HWZAmazonGo;"
-	                        + "user=AmazonGo_User;"
-	                        + "password=showmesql;"
-	                        + "encrypt=false;"
-	                       + "trustServerCertificate=false;"
-	                        + "loginTimeout=30;";	        	        	        
+	    		        	        	        
 	        
 	       tinsertSql  = "INSERT INTO Kundendaten (tVorname,tNachname,tAdresse,tPLZ,tOrt,dGeburtsdatum) VALUES " //
 	                + "('"+tVorname+ "','"+tNachname+ "','"+tAdresse+ "','"+tPLZ+ "','"+tOrt+ "','"+dGeburtsdatum+ "' );"; //      
@@ -54,16 +58,7 @@ import java.time.LocalDate;
 	    {
 	    	ResultSet resultSet = null;
 	    	String tselectSQL;
-	    	
-	    	String tconnectionUrl =
-	                "jdbc:sqlserver://85.93.91.60\\SQL2019;"
-	                        + "database=z_HWZAmazonGo;"
-	                        + "user=AmazonGo_User;"
-	                        + "password=showmesql;"
-	                        + "encrypt=false;"
-	                        + "trustServerCertificate=false;"
-	                        + "loginTimeout=30;";
-	    	
+	    
 	    	// SQL Query 
 	    	tselectSQL =    " SELECT iKundennummer " +
 	    					" FROM Kundendaten" +
@@ -82,10 +77,40 @@ import java.time.LocalDate;
 	        	catch (SQLException e) {
 	        		e.printStackTrace();
 	        }
+	    
 	    }
 	    
+	    
 
+	    public static int INSERTWarenkorbGenID(Integer iKundenID)
+	    {
+	    	ResultSet resultSet = null;
+	    	String tInsertSQL = "";
+	    	Integer iGeneratedWarenKorbID = 0;
 	    	
+	    	// SQL Query 
+	    	tInsertSQL =    "INSERT INTO TWarenkorbPositionen (ref_Kunde) VALUES "
+	    				+   "("									+ iKundenID +     ")";
+	    		    
+	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
+	        PreparedStatement InsertWarenkorbGenID = connection.prepareStatement(tInsertSQL, Statement.RETURN_GENERATED_KEYS);) 
+	        {
+	        	InsertWarenkorbGenID.execute();
+	        	
+	        	resultSet = InsertWarenkorbGenID.getGeneratedKeys();
+	        	 iGeneratedWarenKorbID = Integer.parseInt(resultSet.getString(1));	        		        	
+	        	 
+	        }
+	        	catch (SQLException e) {
+	        		e.printStackTrace();
+	        }
+	        
+	        
+	        return iGeneratedWarenKorbID;
+	    }
+	    
+	    	
+	    
 	}
 	    
 	

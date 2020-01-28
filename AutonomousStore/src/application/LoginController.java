@@ -30,17 +30,26 @@ public class LoginController {
 
 	  
 		    	//Check ob Kunden id geschrieben wurde
-		    	Integer iKundenummer = txtKundennummer.getLength();		    	
+		    	Integer iKundenummer = txtKundennummer.getLength();	
+		    	Integer iWarenkorbID = 0;
 	    	SQLDBReadWrite.AbfrageKundenID(iKundenummer);
 	    	
 	    	
 	    	try {
 				
+	    		// Scene ProdukteAuswahl anzeigen
 	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
 				Parent root = FXMLLoader.load(getClass().getResource("ProdukteAuswahl.fxml"));
 				Scene scene = new Scene(root);
 				StageRegist.setScene(scene);
 				StageRegist.show();
+				
+				//Insert der KundenID und lösen einer WarenkorbID 
+				iWarenkorbID = SQLDBReadWrite.INSERTWarenkorbGenID(iKundenummer) ;
+				
+				
+				
+				
 			} 
 			
 			catch(Exception e) {
