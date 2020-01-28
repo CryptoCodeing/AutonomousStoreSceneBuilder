@@ -1,6 +1,5 @@
 package application;
-import java.util.Date;
-
+import java.time.LocalDate;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -21,33 +20,102 @@ public class RegistrierungController {
     @FXML
     private TextField txtAdresse;
     @FXML
+    private TextField txtPLZ;
+    @FXML
     private TextField txtOrt;
     @FXML
-    private TextField txtPLZ ;
-    @FXML
     private DatePicker dpickerGeburtsdatum;
-
     @FXML
     private Button btnBenutzerkontoAnlegen;
 
-
+//TEST Commiting
+    
+    
+    
     @FXML
     void btnBenutzerkontoAnlegen_clicked(ActionEvent event) {
+    	
 
     	String tVorname = txtVorname.getText();
     	String tNachname = txtNachname.getText();
     	String tAdresse = txtAdresse.getText();
-    	String tOrt = txtOrt.getText();
     	String tPLZ = txtPLZ.getText();
-    	//java.sql.Date dGeburtsdatum =  (java.sql.Date) dpickerGeburtsdatum.getUserData();
-   
+    	String tOrt = txtOrt.getText();
+    	LocalDate dGeburtsdatum = dpickerGeburtsdatum.getValue();
+    	Integer iKundennummerNEU = 0;
+    	boolean valid = true;
     	
-    	SQLDBReadWrite.InsertKundendaten(tVorname,tNachname,tAdresse,tPLZ,tOrt);
+    	
+
+    	//Check ob Kunde nicht Leer speichert
+    	if(tVorname.equals(""))
+    	{
+
+    	    
+    		lblInfo.setText("Fehler: Bitte erfassen Sie einen Vornamen");
+    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);		
+    		valid = false;
+    		return;
+    	}
+
+    	if(tNachname.equals(""))       	
+        	{
+        		lblInfo.setText("Fehler: Bitte erfassen Sie einen Nachname !");
+        		lblInfo.setTextFill(javafx.scene.paint.Color.RED);	
+        		
+        		valid = false;
+        		return;
+        	}
+    	
+    	if(tAdresse.equals(""))
+    	
+    	{
+    		lblInfo.setText("Fehler: Bitte erfassen Sie eine Adresse!");
+    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);	
+    		valid = false;
+    		return;
+    	}
+    	
+    	if(tPLZ.equals(""))
+    	{
+    		lblInfo.setText("Fehler: Bitte erfassen Sie eine PLZ!");
+    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);	
+    		valid = false;
+    		return;
+    	}
+    	
+    	if (tOrt.equals(""))
+    	{
+    		lblInfo.setText("Fehler: Bitte erfassen Sie einen Ort!");
+    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);	
+    		valid = false;
+    		return;
+    	}
     	
     	
-    	lblInfo.setText("Ihre Registrierung war erfolgreich");
+    	
+    	if(dGeburtsdatum == null)
+    	{
+    		lblInfo.setText("Fehler: Bitte erfassen ein Geburtsdatum!");
+    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);	
+    		valid = false;
+    		return;
+    	}
+
+    	
+
+    	
+    	iKundennummerNEU = SQLDBReadWrite.InsertKundendaten(tVorname,tNachname,tAdresse,tPLZ,tOrt,dGeburtsdatum);
+    	
+    	
+    	lblInfo.setText("Ihre Registrierung war erfolgreich, Ihre Kundennummer ist: " + iKundennummerNEU);
+    	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);	
+    	
+    
     	
     }
+    
+
 
 }
   
