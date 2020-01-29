@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="476.0" prefWidth="402.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.RegistrierungController">
+   <children>
+      <AnchorPane prefHeight="397.0" prefWidth="402.0">
+         <children>
+            <Label layoutX="14.0" layoutY="22.0" text="Registrierung">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblInfo" layoutX="14.0" layoutY="49.0" text="INFO" />
+            <Label layoutX="184.0" layoutY="88.0" text="Vorname" />
+            <Label layoutX="180.0" layoutY="118.0" text="Nachname" />
+            <Label layoutX="188.0" layoutY="154.0" text="Adresse" />
+            <Label layoutX="215.0" layoutY="190.0" text="Ort" />
+            <Label layoutX="214.0" layoutY="223.0" text="PLZ" />
+            <Label layoutX="124.0" layoutY="268.0" text="Geburtsdatum" />
+            <TextField fx:id="txtVorname" layoutX="241.0" layoutY="84.0" />
+            <TextField fx:id="txtNachname" layoutX="241.0" layoutY="114.0" />
+            <TextField fx:id="txtAdresse" layoutX="241.0" layoutY="150.0" />
+            <TextField fx:id="txtOrt" layoutX="241.0" layoutY="186.0" />
+            <TextField fx:id="txtPLZ" layoutX="241.0" layoutY="219.0" />  
+            <DatePicker fx:id="dpickerGeburtsdatum" layoutX="215.0" layoutY="264.0" />   
+            	<Button fx:id="btnBenutzerkontoAnlegen" layoutX="214.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnBenutzerkontoAnlegen_clicked" text="Benutzerkonto anlegen" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
