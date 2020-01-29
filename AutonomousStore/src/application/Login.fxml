@@ -9,18 +9,14 @@
 <AnchorPane fx:id="pnlLogin" prefHeight="477.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
     
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="353.0">
+      <AnchorPane layoutY="-36.0" prefHeight="236.0" prefWidth="531.0">
          <children>
             <TextField fx:id="txtKundennummer" layoutX="14.0" layoutY="44.0" promptText="Bitte Scannen Sie den QR Code" />
             <Label layoutX="14.0" layoutY="14.0" text="QR-Code einlesen (42)" />
             <Button fx:id="btnAnmelden" layoutX="197.0" layoutY="44.0" mnemonicParsing="false" onAction="#btnAnmelden_clicked" text="Anmelden" />
             <Button fx:id="btnRegistrierung" layoutX="197.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnRegistrierung_clicked" text="Registrieren" />
+            <Label id="Multi Line suechi" fx:id="lblInfo" alignment="TOP_LEFT" layoutX="12.0" layoutY="126.0" prefHeight="45.0" prefWidth="512.0" text="INFO" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="247.0" fitWidth="346.0" layoutX="4.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../OneDrive/Business/Lift%20Innovations/Bilder/logo_liftinnovations.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

@@ -26,17 +26,22 @@ public class LoginController {
 	    
 	    @FXML
 	    void btnAnmelden_clicked (ActionEvent event) {
-	    	 
-
-	  
-		    	//Check ob Kunden id geschrieben wurde
-		    	Integer iKundenummer = Integer.parseInt(txtKundennummer.getText());		    	
-	    	    //SQLDBReadWrite.AbfrageKundenID(iKundenummer);
-		    	boolean valid = true;
-	    	    
-	    	
 	    	
 	    	try {
+	    	// Check ob Kundennummereingabe durch Kunde leer ist
+	    	if (txtKundennummer.getText().isEmpty()) 
+    		{lblInfo.setText("Bitte erfassen Sie Ihre Kundennummer oder registrieren Sie sich, "
+    				+ "sofern Sie keine Kundennummer besitzen.");   
+    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);
+    		
+    		return;}  			      	    	
+	    	
+	    	
+	   System.out.println("TEST");
+	    		// User eingabe in Variable abfüllen
+		    	Integer iKundenummer = Integer.parseInt(txtKundennummer.getText());		    		    	   
+		    	boolean valid = true;
+	    		
 				if(SQLDBReadWrite.AbfrageKundenID(iKundenummer))
 	    	    
 				{
@@ -47,14 +52,16 @@ public class LoginController {
 				StageRegist.show();
 				}
 				else {
-		    		System.out.println("got u hacker ");
-				}
-			} 
-			
+		    		lblInfo.setText("Diese Kundennummer ist nicht vorhanden. "
+		    				+ "Bitte erfassen Sie eine gültige Kundennummer");
+		    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);				
+				} 
+	    	}
 			catch(Exception e) {
 				//e.printStackTrace();
-				System.out.println("got u hacker ");
-			}
+				lblInfo.setText("Es ist ein Fehler aufgetreten: "+ e.getMessage()) ; 
+				}
+	    	
 }
 	    @FXML
 	    void btnRegistrierung_clicked(ActionEvent event) {

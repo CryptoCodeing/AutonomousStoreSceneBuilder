@@ -95,21 +95,21 @@ import javafx.scene.control.Label;
 	        		{
 	        			//resultSet = selectKundeID.getGeneratedKeys();
 	        			
-	        			if(resultSet.next())
+	        			if(resultSet.next())  
 	        			{
-	        				//resultSet.getInt(tconnectionUrl);
 	        				bUservorhanden = true;
 	        			}
-	        			else
+	        			else 
 	        			{
 
 	        				bUservorhanden = false ;
+	        
 	        			}
 	        			
 	        		}
 	        		catch(Exception e)
 	        		{
-	        			bUservorhanden = false ;
+	        		
 
 	        		}
 	        		
