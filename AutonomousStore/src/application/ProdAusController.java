@@ -66,8 +66,20 @@ try {
 
 	    @FXML
 	    void btnLebensmittelKaufen_clicked(ActionEvent event) {
-// TODO FXML fuer Lebensmittel erstellen
+try {
+				
+	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
+				Parent root = FXMLLoader.load(getClass().getResource("ZigarettenKaufen.fxml"));
+				Scene scene = new Scene(root);
+				StageRegist.setScene(scene);
+				StageRegist.show();
+			} 
+			
+			catch(Exception e) {
+				e.printStackTrace();
+			}
 	    }
+	    
 	    
 	}
 	

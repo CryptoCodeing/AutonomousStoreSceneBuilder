@@ -1,10 +1,21 @@
 	package application;	
 
-	import java.sql.*;
+	import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+
+
 
 	public class SQLDBReadWrite {
 		
+<<<<<<< HEAD
 		// SQL Connection String Globale static variable, für alle Methoden zugänglich
 		static String tconnectionUrl =
                 "jdbc:sqlserver://85.93.91.60\\SQL2019;"
@@ -16,6 +27,14 @@ import java.time.LocalDate;
                         + "loginTimeout=30;";
 		
 	    public static int InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt, LocalDate dGeburtsdatum)  {
+=======
+	    @FXML
+	    private static Label lblInfo;
+	    
+	    // Connect to your database.
+	    // Replace server name, username, and password with your credentials
+	    public static void InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt, LocalDate dGeburtsdatum)  {
+>>>>>>> branch 'master' of https://github.com/OOAautonomousStore/AutonomousStoreSceneBuilder.git
 	    	ResultSet resultSet = null;
 	    	String tinsertSql;
 	    	Integer iKundennummer = 0;
@@ -52,13 +71,33 @@ import java.time.LocalDate;
 	        
 	        return iKundennummer;
 	    }
-	    
+	   
+
+
 	    //Check ob Kudnen ID Vorhanden ist für Login 
-	    public static void AbfrageKundenID(Integer iKundenummer)
+	    public static  boolean AbfrageKundenID(Integer iKundenummer)
 	    {
+
+
+	        
 	    	ResultSet resultSet = null;
 	    	String tselectSQL;
+<<<<<<< HEAD
 	    
+=======
+	    	boolean bUservorhanden = false ;
+	    	
+	    	
+	    	String tconnectionUrl =
+	                "jdbc:sqlserver://85.93.91.60\\SQL2019;"
+	                        + "database=z_HWZAmazonGo;"
+	                        + "user=AmazonGo_User;"
+	                        + "password=showmesql;"
+	                        + "encrypt=false;"
+	                        + "trustServerCertificate=false;"
+	                        + "loginTimeout=30;";
+	    	
+>>>>>>> branch 'master' of https://github.com/OOAautonomousStore/AutonomousStoreSceneBuilder.git
 	    	// SQL Query 
 	    	tselectSQL =    " SELECT iKundennummer " +
 	    					" FROM Kundendaten" +
@@ -67,17 +106,67 @@ import java.time.LocalDate;
 	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
 	        PreparedStatement selectKundeID = connection.prepareStatement(tselectSQL, Statement.RETURN_GENERATED_KEYS);) 
 	        {
-	        	selectKundeID.execute();
-	        
-	        	
+	        	resultSet = selectKundeID.executeQuery();
+	        		
+	        		
+	        		try 
+	        		{
+	        			//resultSet = selectKundeID.getGeneratedKeys();
+	        			
+	        			if(resultSet.next())  
+	        			{
+	        				bUservorhanden = true;
+	        			}
+	        			else 
+	        			{
 
+	        				bUservorhanden = false ;
+	        
+	        			}
+	        			
+	        		}
+	        		catch(Exception e)
+	        		{
+	        		
+
+	        		}
+	        		
+	        	/*if Abfrag is NULL {
+	        		
+	        		bUservorhanden = false ;
+	        		
+	        	}
+	        	
+	        	elseif mehr als 1
+	        	{
+	        		
+	        	
+	        		
+	        	}
 	        	
 	        	
+	        	elseif 1 User
+	        	{
+	        		
+	        		bUservorhanden = true;
+	        	}
+	        	*/
+	        	
+	        	
+	        			
+
 	        }
+	        
+	       
 	        	catch (SQLException e) {
 	        		e.printStackTrace();
 	        }
+<<<<<<< HEAD
 	    
+=======
+			
+	        return bUservorhanden;
+>>>>>>> branch 'master' of https://github.com/OOAautonomousStore/AutonomousStoreSceneBuilder.git
 	    }
 	    
 	    
