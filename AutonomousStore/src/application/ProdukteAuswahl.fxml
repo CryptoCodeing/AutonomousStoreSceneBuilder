@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -25,11 +26,18 @@
                   <Image url="@../../bin/Images/zigarettenregal.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="lblInfoProdAus" layoutX="539.0" layoutY="416.0" prefHeight="34.0" prefWidth="338.0" text="INFO" />
+            <Label fx:id="lblInfoProdAus" layoutX="23.0" layoutY="359.0" prefHeight="34.0" prefWidth="338.0" text="INFO" />
+            
             <Button fx:id="btnLottoSpielen" layoutX="106.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnLottoSpielen_clicked" prefHeight="34.0" prefWidth="129.0" text="Lotto Spielen" />
             <Button fx:id="btnZigarettenKaufen" layoutX="558.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnZigarettenKaufen_clicked" prefHeight="34.0" prefWidth="129.0" text="Zigaretten Kaufen" />
             <Button fx:id="btnLebensmittelKaufen" layoutX="1037.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnLebensmittelKaufen_clicked" prefHeight="34.0" prefWidth="129.0" text="Lebensmittel Kaufen" />
+            <Label layoutX="466.0" layoutY="368.0" prefHeight="17.0" prefWidth="129.0" text="Kundendaten" />
+            <Label layoutX="466.0" layoutY="437.0" prefHeight="25.0" prefWidth="129.0" text="Kudnen Nr." />
+            <Label fx:id="lblKundennummer" layoutX="466.0" layoutY="473.0" prefHeight="17.0" prefWidth="78.0" text="Label" />
          </children>
+         <cursor>
+            <Cursor fx:constant="S_RESIZE" />
+         </cursor>
       </AnchorPane>
    </children>
 </AnchorPane>

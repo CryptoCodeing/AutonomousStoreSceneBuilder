@@ -28,6 +28,10 @@ public class ProdAusController {
 
     @FXML
     private Label lblInfoProdAus;
+    
+    @FXML
+    private Label lblKundenummer;
+    
 	    @FXML
 	    void btnLottoSpielen_clicked (ActionEvent event) {
 try {

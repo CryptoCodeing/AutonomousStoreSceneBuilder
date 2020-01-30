@@ -83,7 +83,7 @@ import javafx.scene.control.Label;
 	    	
 	    	
 
-	    	tselectSQL =    " SELECT iKundennummer " +
+	    	tselectSQL =    " SELECT x " +
 	    					" FROM Kundendaten" +
 	    					" WHERE iKundennummer = " + iKundenummer.toString();
 	    		    
@@ -114,30 +114,7 @@ import javafx.scene.control.Label;
 	        		lblInfo.setText("Es ist ein Fehler aufgetreten" + e.getMessage());
 
 	        		}
-	        		
-	        	/*if Abfrag is NULL {
-	        		
-	        		bUservorhanden = false ;
-	        		
-	        	}
-	        	
-	        	elseif mehr als 1
-	        	{
-	        		
-	        	
-	        		
-	        	}
-	        	
-	        	
-	        	elseif 1 User
-	        	{
-	        		
-	        		bUservorhanden = true;
-	        	}
-	        	*/
-	        	
-	        	
-	        			
+	        			        			
 
 	        }
 	        
@@ -160,8 +137,8 @@ import javafx.scene.control.Label;
 	    	Integer iGeneratedWarenKorbID = 0;
 	    	
 	    	// SQL Query 
-	    	tInsertSQL =    "INSERT INTO TWarenkorbPositionen (ref_Kunde) VALUES "
-	    				+   "("									+ iKundenID +     ")";
+	    	tInsertSQL =    "INSERT INTO TWarenkorb (ref_Kunde) VALUES "
+	    				+   "("									+ iKundenID +     ");";
 	    		    
 	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
 	        PreparedStatement InsertWarenkorbGenID = connection.prepareStatement(tInsertSQL, Statement.RETURN_GENERATED_KEYS);) 
@@ -169,7 +146,7 @@ import javafx.scene.control.Label;
 	        	InsertWarenkorbGenID.execute();
 	        	
 	        	resultSet = InsertWarenkorbGenID.getGeneratedKeys();
-	        	 iGeneratedWarenKorbID = Integer.parseInt(resultSet.getString(1));	        		        	
+	        	iGeneratedWarenKorbID = Integer.parseInt(resultSet.getString(1));	        		        	
 	        	 
 	        }
 	        	catch (SQLException e) {
