@@ -3,6 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="Z:/Downloads/Telegram Desktop/sqljdbc_7.4.1.0_enu/Microsoft JDBC Driver 7.4 for SQL Server/sqljdbc_7.4/enu/mssql-jdbc-7.4.1.jre8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/lucas/HOME/sqljdbc_7.4/enu/mssql-jdbc-7.4.1.jre8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

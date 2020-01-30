@@ -54,6 +54,7 @@ import javafx.scene.control.Label;
 
 	            // Anzeige Inserted ID = Kundennummer
 	        		if (resultSet.next()) {
+	        			
 	        			 iKundennummer = Integer.parseInt(resultSet.getString(1));
 	            }
 	        		else {
@@ -83,7 +84,7 @@ import javafx.scene.control.Label;
 	    	
 	    	
 
-	    	tselectSQL =    " SELECT x " +
+	    	tselectSQL =    " SELECT iKundennummer " +
 	    					" FROM Kundendaten" +
 	    					" WHERE iKundennummer = " + iKundenummer.toString();
 	    		    
@@ -95,7 +96,7 @@ import javafx.scene.control.Label;
 	        		
 	        		try 
 	        		{
-	        			//resultSet = selectKundeID.getGeneratedKeys();
+	        			resultSet = selectKundeID.getGeneratedKeys();
 	        			
 	        			if(resultSet.next())  
 	        			{
@@ -146,6 +147,9 @@ import javafx.scene.control.Label;
 	        	InsertWarenkorbGenID.execute();
 	        	
 	        	resultSet = InsertWarenkorbGenID.getGeneratedKeys();
+	        	
+	        	resultSet.next();
+	        	
 	        	iGeneratedWarenKorbID = Integer.parseInt(resultSet.getString(1));	        		        	
 	        	 
 	        }
