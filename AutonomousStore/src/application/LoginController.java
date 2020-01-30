@@ -26,72 +26,60 @@ public class LoginController {
 	    
 	    @FXML
 	    void btnAnmelden_clicked (ActionEvent event) {
-<<<<<<< HEAD
-	    	 
+
 
 	  
 		    	//Check ob Kunden id geschrieben wurde
-		    	Integer iKundenummer = txtKundennummer.getLength();	
+		    	Integer iKundennummer = 0;
 		    	Integer iWarenkorbID = 0;
-	    	SQLDBReadWrite.AbfrageKundenID(iKundenummer);
+		    	
 	    	
-	    	
-=======
-    	    	
->>>>>>> branch 'master' of https://github.com/OOAautonomousStore/AutonomousStoreSceneBuilder.git
+
 	    	try {
-<<<<<<< HEAD
+
 				
-	    		// Scene ProdukteAuswahl anzeigen
-=======
-	    	// Check ob Kundennummereingabe durch Kunde leer ist
+	    		
+	    		// Check ob Kundennummereingabe durch Kunde leer ist
 	    	if (txtKundennummer.getText().isEmpty()) 
     		{lblInfo.setText("Bitte erfassen Sie Ihre Kundennummer oder registrieren Sie sich, "
     				+ "sofern Sie keine Kundennummer besitzen.");   
-    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);
-    		
+    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);		
     		return;}  			      	    	
 	    	
-	    	
-	   System.out.println("TEST");
+	
 	    		// User eingabe in Variable abfüllen
-		    	Integer iKundenummer = Integer.parseInt(txtKundennummer.getText());		    		    	   
+		    	iKundennummer = Integer.parseInt(txtKundennummer.getText());		    		    	   
 		    	boolean valid = true;
 	    		
-				if(SQLDBReadWrite.AbfrageKundenID(iKundenummer))
-	    	    
+				if(SQLDBReadWrite.AbfrageKundenID(iKundennummer))	    
 				{
->>>>>>> branch 'master' of https://github.com/OOAautonomousStore/AutonomousStoreSceneBuilder.git
+				// Scene ProdukteAuswahl anzeigen
 	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
 				Parent root = FXMLLoader.load(getClass().getResource("ProdukteAuswahl.fxml"));
 				Scene scene = new Scene(root);
 				StageRegist.setScene(scene);
-				StageRegist.show();
-<<<<<<< HEAD
-				
+				StageRegist.show();			
 				//Insert der KundenID und lösen einer WarenkorbID 
-				iWarenkorbID = SQLDBReadWrite.INSERTWarenkorbGenID(iKundenummer) ;
-				
-				
-				
-				
-			} 
+				iWarenkorbID = SQLDBReadWrite.INSERTWarenkorbGenID(iKundennummer) ;			
+				} 
 			
-=======
-				}
+
+				
+	    	
 				else {
 		    		lblInfo.setText("Diese Kundennummer ist nicht vorhanden. "
 		    				+ "Bitte erfassen Sie eine gültige Kundennummer");
 		    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);				
 				} 
 	    	}
->>>>>>> branch 'master' of https://github.com/OOAautonomousStore/AutonomousStoreSceneBuilder.git
-			catch(Exception e) {
+
+			catch (Exception e) {
 				//e.printStackTrace();
 				lblInfo.setText("Es ist ein Fehler aufgetreten: "+ e.getMessage()) ; 
 				}
 	    	
-}
+					}
+
 	    @FXML
 	    void btnRegistrierung_clicked(ActionEvent event) {
 	    	

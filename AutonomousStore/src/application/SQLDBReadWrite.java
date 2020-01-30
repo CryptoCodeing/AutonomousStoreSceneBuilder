@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
 
 	public class SQLDBReadWrite {
 		
-<<<<<<< HEAD
+
 		// SQL Connection String Globale static variable, für alle Methoden zugänglich
 		static String tconnectionUrl =
                 "jdbc:sqlserver://85.93.91.60\\SQL2019;"
@@ -26,15 +26,11 @@ import javafx.scene.control.Label;
                        + "trustServerCertificate=false;"
                         + "loginTimeout=30;";
 		
-	    public static int InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt, LocalDate dGeburtsdatum)  {
-=======
-	    @FXML
+	   
 	    private static Label lblInfo;
-	    
-	    // Connect to your database.
-	    // Replace server name, username, and password with your credentials
-	    public static void InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt, LocalDate dGeburtsdatum)  {
->>>>>>> branch 'master' of https://github.com/OOAautonomousStore/AutonomousStoreSceneBuilder.git
+	 
+	    public static Integer InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt, LocalDate dGeburtsdatum)  {
+
 	    	ResultSet resultSet = null;
 	    	String tinsertSql;
 	    	Integer iKundennummer = 0;
@@ -82,23 +78,11 @@ import javafx.scene.control.Label;
 	        
 	    	ResultSet resultSet = null;
 	    	String tselectSQL;
-<<<<<<< HEAD
-	    
-=======
+
 	    	boolean bUservorhanden = false ;
 	    	
 	    	
-	    	String tconnectionUrl =
-	                "jdbc:sqlserver://85.93.91.60\\SQL2019;"
-	                        + "database=z_HWZAmazonGo;"
-	                        + "user=AmazonGo_User;"
-	                        + "password=showmesql;"
-	                        + "encrypt=false;"
-	                        + "trustServerCertificate=false;"
-	                        + "loginTimeout=30;";
-	    	
->>>>>>> branch 'master' of https://github.com/OOAautonomousStore/AutonomousStoreSceneBuilder.git
-	    	// SQL Query 
+
 	    	tselectSQL =    " SELECT iKundennummer " +
 	    					" FROM Kundendaten" +
 	    					" WHERE iKundennummer = " + iKundenummer.toString();
@@ -127,7 +111,7 @@ import javafx.scene.control.Label;
 	        		}
 	        		catch(Exception e)
 	        		{
-	        		
+	        		lblInfo.setText("Es ist ein Fehler aufgetreten" + e.getMessage());
 
 	        		}
 	        		
@@ -161,12 +145,10 @@ import javafx.scene.control.Label;
 	        	catch (SQLException e) {
 	        		e.printStackTrace();
 	        }
-<<<<<<< HEAD
-	    
-=======
+
 			
 	        return bUservorhanden;
->>>>>>> branch 'master' of https://github.com/OOAautonomousStore/AutonomousStoreSceneBuilder.git
+
 	    }
 	    
 	    
