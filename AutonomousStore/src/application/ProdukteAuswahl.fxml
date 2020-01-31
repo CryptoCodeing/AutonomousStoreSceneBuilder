@@ -34,6 +34,7 @@
             <Label layoutX="466.0" layoutY="368.0" prefHeight="17.0" prefWidth="129.0" text="Kundendaten" />
             <Label layoutX="466.0" layoutY="437.0" prefHeight="25.0" prefWidth="129.0" text="Kudnen Nr." />
             <Label fx:id="lblKundennummer" layoutX="466.0" layoutY="473.0" prefHeight="17.0" prefWidth="78.0" text="Label" />
+            <Button fx:id="btnZurueckZUAnmelden" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnZurueckZUAnmelden_clicked" text="Zurück zum Anmelden" />
          </children>
          <cursor>
             <Cursor fx:constant="S_RESIZE" />

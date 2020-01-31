@@ -49,14 +49,14 @@ public class LoginController {
 	
 	    		// User eingabe in Variable abfüllen
 		    	iKundennummer = Integer.parseInt(txtKundennummer.getText());		    		    	   
-		    	boolean valid = true;
+		    	
 	    		
 				if(SQLDBReadWrite.AbfrageKundenID(iKundennummer))	    
 				{
 				// Scene ProdukteAuswahl anzeigen
 	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
 				Parent root = FXMLLoader.load(getClass().getResource("ProdukteAuswahl.fxml"));
-				Scene scene = new Scene(root);
+				Scene scene = new Scene(root,1000,1000);
 				StageRegist.setScene(scene);
 				StageRegist.show();			
 				//Insert der KundenID und lösen einer WarenkorbID 

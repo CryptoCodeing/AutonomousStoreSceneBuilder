@@ -84,6 +84,25 @@ try {
 			}
 	    }
 	    
+
+	    @FXML
+	    void btnZurueckZUAnmelden_clicked(ActionEvent event) {
+
+	    	try {
+				
+	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
+				Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+				Scene scene = new Scene(root);
+				StageRegist.setScene(scene);
+				StageRegist.show();
+			} 
+			
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+	    	
+	    }
+	    
 	    
 	}
 	

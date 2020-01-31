@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="pnlLogin" prefHeight="477.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+<AnchorPane fx:id="pnlLogin" prefHeight="234.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
     
    <children>
-      <AnchorPane layoutY="-36.0" prefHeight="236.0" prefWidth="531.0">
+      <AnchorPane layoutY="-1.0" prefHeight="309.0" prefWidth="354.0">
          <children>
-            <TextField fx:id="txtKundennummer" layoutX="14.0" layoutY="44.0" promptText="Bitte Scannen Sie den QR Code" />
-            <Label layoutX="14.0" layoutY="14.0" text="QR-Code einlesen (42)" />
-            <Button fx:id="btnAnmelden" layoutX="197.0" layoutY="44.0" mnemonicParsing="false" onAction="#btnAnmelden_clicked" text="Anmelden" />
-            <Button fx:id="btnRegistrierung" layoutX="197.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnRegistrierung_clicked" text="Registrieren" />
-            <Label id="Multi Line suechi" fx:id="lblInfo" alignment="TOP_LEFT" layoutX="12.0" layoutY="126.0" prefHeight="45.0" prefWidth="512.0" text="INFO" />
+            <TextField fx:id="txtKundennummer" layoutX="14.0" layoutY="155.0" promptText="Bitte Scannen Sie den QR Code" />
+            <Label layoutX="14.0" layoutY="112.0" text="Bitte scannen Sie Ihren QR-Code (Kundennummer)">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Button fx:id="btnAnmelden" layoutX="7.0" layoutY="252.0" mnemonicParsing="false" onAction="#btnAnmelden_clicked" prefHeight="51.0" prefWidth="118.0" text="Anmelden" />
+            <Button fx:id="btnRegistrierung" layoutX="230.0" layoutY="252.0" mnemonicParsing="false" onAction="#btnRegistrierung_clicked" prefHeight="51.0" prefWidth="118.0" text="Registrieren" />
+            <Label id="Multi Line suechi" fx:id="lblInfo" alignment="TOP_LEFT" layoutX="7.0" layoutY="8.0" prefHeight="45.0" prefWidth="341.0" text="Herzlich Wilkommen im HWZ Autonomous Store">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </children>

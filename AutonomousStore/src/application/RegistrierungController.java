@@ -2,10 +2,15 @@ package application;
 import java.time.LocalDate;
 import javafx.event.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class RegistrierungController {
 
@@ -115,13 +120,23 @@ public class RegistrierungController {
     	
     }
     
-    public Label getLblInfo() {
-		return lblInfo;
-	}
+    @FXML
+    void btnZurLoginPage_clicked(ActionEvent event) {
 
-	public void setLblInfo(Label lblInfo) {
-		this.lblInfo = lblInfo;
-	}
+    	try {
+			
+    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Scene scene = new Scene(root);
+			StageRegist.setScene(scene);
+			StageRegist.show();
+		} 
+		
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+    	
+    }
 
 }
   

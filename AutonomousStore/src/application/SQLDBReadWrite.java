@@ -25,7 +25,6 @@ import javafx.scene.control.Label;
                         + "encrypt=false;"
                        + "trustServerCertificate=false;"
                         + "loginTimeout=30;";
-		
 	   
 	    private static Label lblInfo;
 	 
@@ -69,8 +68,6 @@ import javafx.scene.control.Label;
 	        return iKundennummer;
 	    }
 	   
-
-
 	    //Check ob Kudnen ID Vorhanden ist für Login 
 	    public static  boolean AbfrageKundenID(Integer iKundenummer)
 	    {
@@ -95,9 +92,7 @@ import javafx.scene.control.Label;
 	        		
 	        		
 	        		try 
-	        		{
-	        			resultSet = selectKundeID.getGeneratedKeys();
-	        			
+	        		{	        			
 	        			if(resultSet.next())  
 	        			{
 	        				bUservorhanden = true;
@@ -129,9 +124,7 @@ import javafx.scene.control.Label;
 
 	    }
 	    
-	    
-
-	    public static int INSERTWarenkorbGenID(Integer iKundenID)
+	    public static int INSERTWarenkorbGenID(Integer iKundenID)	   
 	    {
 	    	ResultSet resultSet = null;
 	    	String tInsertSQL = "";
@@ -161,7 +154,34 @@ import javafx.scene.control.Label;
 	        return iGeneratedWarenKorbID;
 	    }
 	    
+	    public static void INSERTWarenkorbPosition(Integer iref_Warenkorb, Integer iArtikelnummer, String tArtikelbezeichnung, float fPreisProStueck, Integer iAnzahl, float fPreisPositionTotal) {
 	    	
+	    	ResultSet resultSet = null;
+	    	String tInsertSQL = "";
+	    	Integer iGeneratedWarenKorbID = 0;
+	    	
+	    	// SQL Query 
+	    	tInsertSQL =    "INSERT INTO TWarenkorbPositionen (ref_Kunde) VALUES "
+	    				+   "()";
+	    		    
+	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
+	        PreparedStatement InsertWarenkorbGenID = connection.prepareStatement(tInsertSQL, Statement.RETURN_GENERATED_KEYS);) 
+	        {
+	        	InsertWarenkorbGenID.execute();
+	        
+	        	
+	        	resultSet.next();
+	        	
+	        	iGeneratedWarenKorbID = Integer.parseInt(resultSet.getString(1));	        		        	
+	        	 
+	        }
+	        	catch (SQLException e) {
+	        		e.printStackTrace();
+	        }
+	        
+	        
+	    
+	    }
 	    
 	}
 	    
