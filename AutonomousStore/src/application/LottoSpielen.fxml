@@ -30,9 +30,9 @@
       </AnchorPane>
       <AnchorPane fx:id="pnlZahlentippErfassung" layoutX="15.0" layoutY="111.0" prefHeight="75.0" prefWidth="449.0">
          <children>
-            <Button layoutX="333.0" layoutY="46.0" mnemonicParsing="false" text="Tipp abgeben" />
+            <Button fx:id="btnTippAbgeben" layoutX="333.0" layoutY="46.0" mnemonicParsing="false" onAction="#btnTippAbgeben_clicked" text="Tipp abgeben" />
             <Label layoutX="14.0" layoutY="13.0" text="Erfassen Sie Bitte Ihren Tipp (6 Ziffern)" />
-            <TextField layoutX="274.0" layoutY="9.0" />
+            <TextField fx:id="txtTippZahlen" layoutX="274.0" layoutY="9.0" />
          </children>
       </AnchorPane>
       <Label fx:id="lblInfo" layoutX="29.0" layoutY="40.0" text="INFO" />

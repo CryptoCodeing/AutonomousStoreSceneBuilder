@@ -1,6 +1,11 @@
 package application;
 
 import java.awt.TextField;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,35 +33,62 @@ public class LottoController {
     @FXML
     private Button btnZahlenAngeben;       
     @FXML
-    private CheckBox cbxZusatzSpiel;
+    private CheckBox cbxZusatzSpiel;    
+    @FXML
+    private TextField txtTippZahlen;
     
     
     @FXML
-    void btnZahlenAngeben_clicked(ActionEvent event) {
+    void btnZahlenAngeben_clicked(ActionEvent event) {    	
+    	pnlZahlentippErfassung.setVisible(true);
+    	
+    	
     	Integer iAnzahlSpiele = Integer.parseInt(txtAnzahlSpiele.getText());
-   
+    	//Checkbox zustand lesen
     	
-    	//CHeckbox zustand lesen
-    	if(cbxZusatzSpiel.isSelected()){
-    		   
-    		
-    		
-    		
-    		} else {
-    		   
-    		}
-    	
-    	
-    	
-    	
-    	
-    	   	
     }
     
     
     
     
+    public static void ParameterUebergabe()
+	
+	{}
     
+    
+    
+    
+    
+    @FXML
+    void btnTippAbgeben_clicked(ActionEvent event) {
+    	Integer iref_Warenkorb = 0;
+    	Integer iArtikelnummer = 0;
+    	String tArtikelbezeichnung = "";
+    	float fPreisProStueck = 0;
+    	Integer iAnzahl = 0;
+    	float fPreisPositionTotal = 0.00f;
+    	
+    	//iref_Warenkorb ;
+    	iArtikelnummer = 10101010;
+    	tArtikelbezeichnung = "Lotozahlentipp: " + txtTippZahlen.getText();
+    	fPreisProStueck = 5.5f;
+    	iAnzahl = 1;
+    	fPreisPositionTotal = 5.5f;
+    	
+    	
+    	
+    	
+    	if(cbxZusatzSpiel.isSelected()){} else {}
+	
+	
+	
+	
+	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;
+    	
+	   	
+	
+    	
+    }
     
     
     

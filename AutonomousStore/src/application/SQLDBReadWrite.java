@@ -28,6 +28,7 @@ import javafx.scene.control.Label;
 	   
 	    private static Label lblInfo;
 	 
+	    //Insert fuer Registrierung
 	    public static Integer InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt, LocalDate dGeburtsdatum)  {
 
 	    	ResultSet resultSet = null;
@@ -67,7 +68,6 @@ import javafx.scene.control.Label;
 	        
 	        return iKundennummer;
 	    }
-	   
 	    //Check ob Kudnen ID Vorhanden ist für Login 
 	    public static  boolean AbfrageKundenID(Integer iKundenummer)
 	    {
@@ -123,7 +123,7 @@ import javafx.scene.control.Label;
 	        return bUservorhanden;
 
 	    }
-	    
+	    //Erstellen eienes Warenkorb
 	    public static int INSERTWarenkorbGenID(Integer iKundenID)	   
 	    {
 	    	ResultSet resultSet = null;
@@ -153,36 +153,30 @@ import javafx.scene.control.Label;
 	        
 	        return iGeneratedWarenKorbID;
 	    }
-	    
-	    public static void INSERTWarenkorbPosition(Integer iref_Warenkorb, Integer iArtikelnummer, String tArtikelbezeichnung, float fPreisProStueck, Integer iAnzahl, float fPreisPositionTotal) {
-	    	
-	    	ResultSet resultSet = null;
+	    //Erstellen einer WarenkorbPosition
+	    public static boolean INSERTWarenkorbPosition(Integer iref_Warenkorb, Integer iArtikelnummer, String tArtikelbezeichnung, float fPreisProStueck, Integer iAnzahl, float fPreisPositionTotal) {
+	    		    	
 	    	String tInsertSQL = "";
-	    	Integer iGeneratedWarenKorbID = 0;
+	    	boolean bInsertErfolgreich = false;
 	    	
 	    	// SQL Query 
-	    	tInsertSQL =    "INSERT INTO TWarenkorbPositionen (ref_Kunde) VALUES "
-	    				+   "()";
+	    	tInsertSQL =    "INSERT INTO TWarenkorbPositionen (iref_Warenkorb,iArtikelnummer, tArtikelbeschreibung, fPreisProStück, iAnzahl, fPreisPositionTotal ) VALUES "
+	    				+   "("+iref_Warenkorb+","+iArtikelnummer+","+tArtikelbezeichnung+","+fPreisProStueck+","+iAnzahl+","+fPreisPositionTotal+")";
 	    		    
 	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
-	        PreparedStatement InsertWarenkorbGenID = connection.prepareStatement(tInsertSQL, Statement.RETURN_GENERATED_KEYS);) 
+	        PreparedStatement InsertWarenkorbPosition = connection.prepareStatement(tInsertSQL, Statement.RETURN_GENERATED_KEYS);) 
 	        {
-	        	InsertWarenkorbGenID.execute();
-	        
-	        	
-	        	resultSet.next();
-	        	
-	        	iGeneratedWarenKorbID = Integer.parseInt(resultSet.getString(1));	        		        	
-	        	 
+	        	InsertWarenkorbPosition.execute();	        
+	        	   bInsertErfolgreich = true;     	        	
 	        }
 	        	catch (SQLException e) {
 	        		e.printStackTrace();
+	        		bInsertErfolgreich = false;
 	        }
 	        
 	        
-	    
-	    }
-	    
-	}
+	        return bInsertErfolgreich;
+	    }	    
+									}
 	    
 	
