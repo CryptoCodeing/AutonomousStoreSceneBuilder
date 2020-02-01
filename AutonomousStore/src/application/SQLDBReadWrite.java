@@ -177,6 +177,33 @@ import javafx.scene.control.Label;
 	        
 	        return bInsertErfolgreich;
 	    }	    
-									}
+									
+	
+	    public static  ResultSet SELECTTKundenDaten(Integer iKundenummer)
+	    {
+	        
+	    	ResultSet rsSELECTallKundedaten = null;
+	    	String tselectSQL;
+
+	    	tselectSQL =    " SELECT * " +
+	    					" FROM Kundendaten" +
+	    					" WHERE iKundennummer = " + iKundenummer.toString();
+	    		    
+	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
+	        PreparedStatement selectKundeDaten = connection.prepareStatement(tselectSQL);) 
+	        {
+	        	rsSELECTallKundedaten = selectKundeDaten.executeQuery();	           			        			        			
+	        }
+	        	catch (SQLException e) {
+	        		e.printStackTrace();
+	        }
+
+			
+	        return rsSELECTallKundedaten;
+
+	    }
+	
+	
+	}
 	    
 	

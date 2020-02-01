@@ -31,8 +31,29 @@ public class ProdAusController {
     
     @FXML
     private Label lblKundenummer;
-    
-	    @FXML
+   
+	   @FXML
+	    private Label  lblKundenummerAnzeigen;
+	 
+	    //Kunden Detail Daten Anzeigen 
+	    public static void KundeDetailAnzeigen(Integer iKundenummer)
+	    
+	    { 
+	    	  
+	    		//Muss so oder so nochmals ein SQL gwemacht werden der Kudne gibt nur die ID ein der Rest wird mit SQL gemacht 
+	    	try {
+				    	 SQLDBReadWrite.SELECTTKundenDaten(iKundenummer);
+				    	 
+				   
+				    	 //	lblKundenummerAnzeigen.getText()
+	    	
+			} 
+			 
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+	    }
+
 	    void btnLottoSpielen_clicked (ActionEvent event) {
 try {
 				

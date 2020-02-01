@@ -60,7 +60,9 @@ public class LoginController {
 				StageRegist.setScene(scene);
 				StageRegist.show();			
 				//Insert der KundenID und lösen einer WarenkorbID 
-				iWarenkorbID = SQLDBReadWrite.INSERTWarenkorbGenID(iKundennummer) ;			
+				iWarenkorbID = SQLDBReadWrite.INSERTWarenkorbGenID(iKundennummer) ;		
+				
+				ProdAusController.KundeDetailAnzeigen(iKundennummer) ;
 				} 
 			
 
