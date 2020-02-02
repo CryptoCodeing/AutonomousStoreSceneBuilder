@@ -96,7 +96,7 @@ try {
 try {
 				
 	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
-				Parent root = FXMLLoader.load(getClass().getResource("ZigarettenKaufen.fxml"));
+				Parent root = FXMLLoader.load(getClass().getResource("LebensmittelKaufen.fxml"));
 				Scene scene = new Scene(root);
 				StageRegist.setScene(scene);
 				StageRegist.show();
