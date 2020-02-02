@@ -58,7 +58,7 @@ public class LoginController {
 				// Scene ProdukteAuswahl anzeigen
 	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
 				Parent root = FXMLLoader.load(getClass().getResource("ProdukteAuswahl.fxml"));
-				Scene scene = new Scene(root,1000,1000);
+				Scene scene = new Scene(root,1300,900);
 				StageRegist.setScene(scene);
 				StageRegist.show();			
 				//Insert der KundenID und lösen einer WarenkorbID 
