@@ -47,6 +47,7 @@ public class LottoController {
     	if (tAnzahlSpiele.equals(""))
     	{
     	lblInfo.setText("Bitte erfassen Sie die Anzahl Spiele.");
+    	lblInfo.setTextFill(javafx.scene.paint.Color.RED);
     	return;
     	}
     	
