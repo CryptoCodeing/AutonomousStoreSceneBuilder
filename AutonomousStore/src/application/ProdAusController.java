@@ -44,8 +44,10 @@ public class ProdAusController {
 	    	try {
 				    	 SQLDBReadWrite.SELECTTKundenDaten(iKundenummer);
 				    	 
+				 //LM so kann Warenkorb ID gehot werden  Integer iWarenkorbID =  LoginController.iWarenkorbID;
+				    	 
 				   
-				    	 //	lblKundenummerAnzeigen.getText()
+				   //	lblKundenummerAnzeigen.getText()
 	    	
 			} 
 			 
@@ -53,7 +55,7 @@ public class ProdAusController {
 				e.printStackTrace();
 			}
 	    }
-
+	    @FXML
 	    void btnLottoSpielen_clicked (ActionEvent event) {
 try {
 				

@@ -24,6 +24,8 @@ public class LoginController {
 	    @FXML
 	    private Label lblInfo;
 	    
+	    static Integer iWarenkorbID = 0;
+	    
 	    @FXML
 	    void btnAnmelden_clicked (ActionEvent event) {
 
@@ -31,7 +33,7 @@ public class LoginController {
 	  
 		    	//Check ob Kunden id geschrieben wurde
 		    	Integer iKundennummer = 0;
-		    	Integer iWarenkorbID = 0;
+		    	
 		    	
 	    	
 
@@ -51,7 +53,7 @@ public class LoginController {
 		    	iKundennummer = Integer.parseInt(txtKundennummer.getText());		    		    	   
 		    	
 	    		
-				if(SQLDBReadWrite.AbfrageKundenID(iKundennummer))	    
+				if(SQLDBReadWrite.AbfrageKundenIDvorhanden(iKundennummer))	    
 				{
 				// Scene ProdukteAuswahl anzeigen
 	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -62,12 +64,7 @@ public class LoginController {
 				//Insert der KundenID und lösen einer WarenkorbID 
 				iWarenkorbID = SQLDBReadWrite.INSERTWarenkorbGenID(iKundennummer) ;		
 				
-				ProdAusController.KundeDetailAnzeigen(iKundennummer) ;
 				} 
-			
-
-				
-	    	
 				else {
 		    		lblInfo.setText("Diese Kundennummer ist nicht vorhanden. "
 		    				+ "Bitte erfassen Sie eine gültige Kundennummer");

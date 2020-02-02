@@ -7,11 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-
-import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-
 
 	public class SQLDBReadWrite {
 		
@@ -29,7 +25,7 @@ import javafx.scene.control.Label;
 	    private static Label lblInfo;
 	 
 	    //Insert fuer Registrierung
-	    public static Integer InsertKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt, LocalDate dGeburtsdatum)  {
+	    public static Integer INSERTKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt, LocalDate dGeburtsdatum)  {
 
 	    	ResultSet resultSet = null;
 	    	String tinsertSql;
@@ -69,7 +65,7 @@ import javafx.scene.control.Label;
 	        return iKundennummer;
 	    }
 	    //Check ob Kudnen ID Vorhanden ist für Login 
-	    public static  boolean AbfrageKundenID(Integer iKundenummer)
+	    public static  boolean AbfrageKundenIDvorhanden(Integer iKundenummer)
 	    {
 
 
@@ -160,8 +156,8 @@ import javafx.scene.control.Label;
 	    	boolean bInsertErfolgreich = false;
 	    	
 	    	// SQL Query 
-	    	tInsertSQL =    "INSERT INTO TWarenkorbPositionen (iref_Warenkorb,iArtikelnummer, tArtikelbeschreibung, fPreisProStück, iAnzahl, fPreisPositionTotal ) VALUES "
-	    				+   "("+iref_Warenkorb+","+iArtikelnummer+","+tArtikelbezeichnung+","+fPreisProStueck+","+iAnzahl+","+fPreisPositionTotal+")";
+	    	tInsertSQL =    "INSERT INTO TWarenkorbPositionen (iref_Warenkorb, iArtikelnummer, tArtikelbeschreibung, fPreisProStück, iAnzahl, fPreisPositionTotal ) VALUES "
+	    				+   "("+iref_Warenkorb+","+iArtikelnummer+",'"+tArtikelbezeichnung+"',"+fPreisProStueck+","+iAnzahl+","+fPreisPositionTotal+")";
 	    		    
 	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
 	        PreparedStatement InsertWarenkorbPosition = connection.prepareStatement(tInsertSQL, Statement.RETURN_GENERATED_KEYS);) 
@@ -177,8 +173,7 @@ import javafx.scene.control.Label;
 	        
 	        return bInsertErfolgreich;
 	    }	    
-									
-	
+	    //SELECT aller Kundendaten in TKundendaten
 	    public static  ResultSet SELECTTKundenDaten(Integer iKundenummer)
 	    {
 	        
@@ -202,8 +197,7 @@ import javafx.scene.control.Label;
 	        return rsSELECTallKundedaten;
 
 	    }
-	
-	
+		
 	}
 	    
 	

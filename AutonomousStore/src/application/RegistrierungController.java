@@ -110,7 +110,7 @@ public class RegistrierungController {
     	
 
     	
-    	iKundennummerNEU = SQLDBReadWrite.InsertKundendaten(tVorname,tNachname,tAdresse,tPLZ,tOrt,dGeburtsdatum);
+    	iKundennummerNEU = SQLDBReadWrite.INSERTKundendaten(tVorname,tNachname,tAdresse,tPLZ,tOrt,dGeburtsdatum);
     	
     	
     	lblInfo.setText("Ihre Registrierung war erfolgreich, Ihre Kundennummer ist: " + iKundennummerNEU);

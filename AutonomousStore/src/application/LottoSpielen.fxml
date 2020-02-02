@@ -15,26 +15,26 @@
          </image>
       </ImageView>
       <Button fx:id="btnZurueckZUProdAusVONLotto" layoutX="15.0" layoutY="246.0" mnemonicParsing="false" onAction="#btnZurueckZUProdAusVONLotto_clicked" prefHeight="33.0" prefWidth="176.0" text="Zurück zur Produkte Auswahl" />
-      <Label layoutX="14.0" layoutY="14.0" text="Herzlich WiIlkommen bei Swiss LOTTO">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
       <AnchorPane layoutX="15.0" layoutY="66.0" prefHeight="27.0" prefWidth="449.0">
          <children>
             <Button fx:id="btnZahlenAngeben" layoutX="333.0" layoutY="9.0" mnemonicParsing="false" onAction="#btnZahlenAngeben_clicked" text="Zahlen angeben" />
-            <CheckBox fx:id="cbxZusatzSpiel" layoutX="215.0" layoutY="14.0" mnemonicParsing="false" text="mit Zusatzzahl" />
-            <TextField fx:id="txtAnzahlSpiele" layoutX="168.0" layoutY="10.0" prefHeight="25.0" prefWidth="29.0" />
-            <Label layoutX="14.0" layoutY="14.0" text="Anzahl gewünschter Spiele:" />
+            <TextField fx:id="txtAnzahlSpiele" layoutX="185.0" layoutY="11.0" prefHeight="25.0" prefWidth="29.0" />
+            <Label layoutX="14.0" layoutY="14.0" text="Anzahl gewünschter Tipps:">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="pnlZahlentippErfassung" layoutX="15.0" layoutY="111.0" prefHeight="75.0" prefWidth="449.0">
+      <AnchorPane fx:id="pnlZahlentippErfassung" layoutX="15.0" layoutY="111.0" prefHeight="75.0" prefWidth="449.0" visible="false">
          <children>
             <Button fx:id="btnTippAbgeben" layoutX="333.0" layoutY="46.0" mnemonicParsing="false" onAction="#btnTippAbgeben_clicked" text="Tipp abgeben" />
             <Label layoutX="14.0" layoutY="13.0" text="Erfassen Sie Bitte Ihren Tipp (6 Ziffern)" />
             <TextField fx:id="txtTippZahlen" layoutX="274.0" layoutY="9.0" />
          </children>
       </AnchorPane>
-      <Label fx:id="lblInfo" layoutX="29.0" layoutY="40.0" text="INFO" />
+      <Label fx:id="lblInfo" layoutX="15.0" layoutY="14.0" prefHeight="25.0" prefWidth="417.0" text="Wie viele Tipps möchten Sie gerne abgeben?">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
    </children>
 </AnchorPane>
