@@ -35,23 +35,33 @@ public class LottoController {
     
     Integer iWarenkorbID;
     Integer iVerbleibendeSpiele = 0;
- 	Integer iGespielteSpiele = 0;
-    
-    
-    
-  
-    
+ 	Integer iGespielteSpiele = 0;   
+    Integer iAnzahlSpiele =0;
     
     @FXML
-    void btnZahlenAngeben_clicked(ActionEvent event) {    
-    	pnlZahlentippErfassung.setVisible(true);
+    void btnZahlenAngeben_clicked(ActionEvent event) {
+    	
+    	try {
+    		String tAnzahlSpiele = txtAnzahlSpiele.getText();
+    		// Abfangen von leerem Input
+    	if (tAnzahlSpiele.equals(""))
+    	{
+    	lblInfo.setText("Bitte erfassen Sie die Anzahl Spiele.");
+    	return;
+    	}
+    	
+    	iAnzahlSpiele = Integer.parseInt(txtAnzahlSpiele.getText());
+    	pnlZahlentippErfassung.setVisible(true);    	
+    		}
+    	
+    	catch (Exception e) 
+    	{
+		lblInfo.setText("Es ist ein Fehler aufgetreten: "+e.getMessage());
+		}
     }
     
-  
     @FXML
-    void btnTippAbgeben_clicked(ActionEvent event) {	
-	 	//Handling Anzahl Spiele Daten
-    	Integer iAnzahlSpiele = Integer.parseInt(txtAnzahlSpiele.getText());
+    void btnTippAbgeben_clicked(ActionEvent event) {	  	
 	 	//WarenkorPosition Daten
     	Integer iref_Warenkorb = 0;
     	Integer iArtikelnummer = 0;
@@ -59,31 +69,23 @@ public class LottoController {
     	String tArtikelbezeichnung = "";
     	float fPreisProStueck = 0;
     	Integer iAnzahl = 0;
-    	float fPreisPositionTotal = 0.00f;
-    	
-    	
-    	
-    	   
-    	
-        	
-        	   
-         		
+    	float fPreisPositionTotal = 0.00f;       	            		
          		    		
-         		iref_Warenkorb = LoginController.iWarenkorbID;
-             	iArtikelnummer = 10101010;
-             	tArtikelbezeichnungBuild = ("Lotozahlentipp: " + txtTippZahlen.getText());
-             	tArtikelbezeichnung = tArtikelbezeichnungBuild;
-             	fPreisProStueck = 5.5f;
-             	iAnzahl = 1;
-             	fPreisPositionTotal = 5.5f;
+	         		iref_Warenkorb = LoginController.iWarenkorbID;
+	             	iArtikelnummer = 10101010;
+	             	tArtikelbezeichnungBuild = ("Lotozahlentipp: " + txtTippZahlen.getText());
+	             	tArtikelbezeichnung = tArtikelbezeichnungBuild;
+	             	fPreisProStueck = 5.5f;
+	             	iAnzahl = 1;
+	             	fPreisPositionTotal = 5.5f;
          		
              	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;
              	
-             		iGespielteSpiele += 1;
-             		
-             		iVerbleibendeSpiele = iAnzahlSpiele-iGespielteSpiele;
-             		lblInfo.setText("Sie haben noch "+iVerbleibendeSpiele+". Tipps.");             		
-             		lblInfo.setFont(new Font("Arial", 14));
+	             		iGespielteSpiele += 1;
+	             		
+	             		iVerbleibendeSpiele = iAnzahlSpiele-iGespielteSpiele;
+	             		lblInfo.setText("Sie haben noch "+iVerbleibendeSpiele+". Tipps.");             		
+	             		lblInfo.setFont(new Font("Arial", 14));
              		
         	if (iAnzahlSpiele==iGespielteSpiele)
         	{
@@ -91,22 +93,11 @@ public class LottoController {
         	lblInfo.setFont(new Font("Arial", 16));
         	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
         	btnTippAbgeben.setDisable(true);
-        	}
-	
-	
-	
-    	
-	   	
-	
-    	
+        	}	  	
     }
     
-    
-    
-    
-    
 	    @FXML
-	    void btnZurueckZUProdAusVONLotto_clicked(ActionEvent event) {
+	void btnZurueckZUProdAusVONLotto_clicked(ActionEvent event) {
 	    		
 	    	try {				
 	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -121,8 +112,5 @@ public class LottoController {
 		}	
 	    	
 	    		}
-					
-
-
-							
+												
 }

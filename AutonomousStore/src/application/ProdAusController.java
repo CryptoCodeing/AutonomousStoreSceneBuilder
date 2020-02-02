@@ -107,7 +107,6 @@ try {
 			}
 	    }
 	    
-
 	    @FXML
 	    void btnZurueckZUAnmelden_clicked(ActionEvent event) {
 
