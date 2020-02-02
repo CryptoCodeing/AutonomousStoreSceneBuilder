@@ -36,22 +36,23 @@
             <Label layoutX="466.0" layoutY="368.0" prefHeight="17.0" prefWidth="129.0" text="Kundendaten" />
             <Label layoutX="466.0" layoutY="437.0" prefHeight="25.0" prefWidth="129.0" text="Kudnen Nr." />
             <Label fx:id="lblKundennummer" layoutX="466.0" layoutY="473.0" prefHeight="17.0" prefWidth="78.0" text="Label" />
-            <Button fx:id="btnZurueckZUAnmelden" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnZurueckZUAnmelden_clicked" text="Zurück zum Anmelden" />
-         </children>
+            <Button fx:id="btnZurueckZUAnmelden" layoutX="167.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnZurueckZUAnmelden_clicked" text="Zurück zum Anmelden" />
+            <Button fx:id="btnWarenkorbAnzeigen" layoutX="23.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnWarenkorbAnzeigen_clicked" prefHeight="25.0" prefWidth="136.0" text="Warenkorb anzeigen" />
+                 </children>
          <cursor>
             <Cursor fx:constant="S_RESIZE" />
          </cursor>
       </AnchorPane>
-      <AnchorPane layoutY="523.0" prefHeight="286.0" prefWidth="1311.0">
+      <AnchorPane fx:id="pnlWarenkorbAnzeigen" layoutY="523.0" prefHeight="385.0" prefWidth="1311.0" visible="false">
          <children>
-            <Label contentDisplay="CENTER" layoutX="41.0" layoutY="34.0" prefHeight="39.0" prefWidth="1240.0" text="Warenkorb" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Label fx:id="lblWarenkorbInfo" contentDisplay="CENTER" layoutX="41.0" layoutY="34.0" prefHeight="39.0" prefWidth="1240.0" text="Warenkorb" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font size="27.0" />
                </font>
             </Label>
             <ListView id="WarenkorbListe" layoutX="41.0" layoutY="86.0" opacity="0.74" prefHeight="200.0" prefWidth="1240.0" />
+            <Button fx:id="btnCheckout" layoutX="570.0" layoutY="310.0" mnemonicParsing="false" onAction="#btnCheckout_clicked" prefHeight="48.0" prefWidth="171.0" text="Checkout" />
          </children>
       </AnchorPane>
-      <Button layoutX="560.0" layoutY="827.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="171.0" text="Checkout" />
    </children>
 </AnchorPane>

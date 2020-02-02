@@ -20,9 +20,7 @@ import javafx.scene.control.Label;
                         + "password=showmesql;"
                         + "encrypt=false;"
                        + "trustServerCertificate=false;"
-                        + "loginTimeout=30;";
-	   
-	    private static Label lblInfo;
+                        + "loginTimeout=30;";	
 	 
 	    //Insert fuer Registrierung
 	    public static Integer INSERTKundendaten(String tVorname,String tNachname,String tAdresse, String tPLZ, String tOrt, LocalDate dGeburtsdatum)  {
@@ -103,7 +101,7 @@ import javafx.scene.control.Label;
 	        		}
 	        		catch(Exception e)
 	        		{
-	        		lblInfo.setText("Es ist ein Fehler aufgetreten" + e.getMessage());
+	        		System.out.println("Es ist ein Fehler aufgetreten" + e.getMessage());
 
 	        		}
 	        			        			
@@ -197,7 +195,30 @@ import javafx.scene.control.Label;
 	        return rsSELECTallKundedaten;
 
 	    }
-		
+	   // SELECT aller Warenkorb Positionen
+	    public static  ResultSet SELECTTWarenkorbPositionen(Integer iref_Warenkorb)
+	    {
+	        
+	    	ResultSet rsSELECTWarenkorbPositionen = null;
+	    	String tselectSQL;
+
+	    	tselectSQL =    " SELECT * " +
+	    					" FROM TWarenkorbPositionen" +
+	    					" WHERE iref_Warenkorb = " + iref_Warenkorb.toString();
+	    		    
+	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
+	        PreparedStatement selectKundeDaten = connection.prepareStatement(tselectSQL);) 
+	        {
+	        	rsSELECTWarenkorbPositionen = selectKundeDaten.executeQuery();	           			        			        			
+	        }
+	        	catch (SQLException e) {
+	        		e.printStackTrace();
+	        }
+
+			
+	        return rsSELECTWarenkorbPositionen;
+
+	    }		
 	}
 	    
 	

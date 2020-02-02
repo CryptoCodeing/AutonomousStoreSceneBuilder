@@ -8,11 +8,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class ProdAusController {
 
 	
+	@FXML
+    private Button btnCheckout;
 
     @FXML
     private ImageView imgZigaretten;
@@ -21,19 +24,29 @@ public class ProdAusController {
     private Button btnLottoSpielen;
 
     @FXML
+    private Label lblKundennummer;
+
+    @FXML
     private Button btnZigarettenKaufen;
+
+    @FXML
+    private Label lblWarenkorbInfo;
 
     @FXML
     private Button btnLebensmittelKaufen;
 
     @FXML
     private Label lblInfoProdAus;
-    
+
     @FXML
-    private Label lblKundenummer;
-   
-	   @FXML
-	    private Label  lblKundenummerAnzeigen;
+    private Button btnZurueckZUAnmelden;
+
+    @FXML
+    private Button btnWarenkorbAnzeigen;
+
+    @FXML
+    private AnchorPane pnlWarenkorbAnzeigen;
+
 	 
 	    //Kunden Detail Daten Anzeigen 
 	    public static void KundeDetailAnzeigen(Integer iKundenummer)
@@ -55,9 +68,10 @@ public class ProdAusController {
 				e.printStackTrace();
 			}
 	    }
-	    @FXML
+	  
+	    @FXML	    
 	    void btnLottoSpielen_clicked (ActionEvent event) {
-try {
+	    	try {
 				
 	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
 				Parent root = FXMLLoader.load(getClass().getResource("LottoSpielen.fxml"));
@@ -124,8 +138,21 @@ try {
 			}
 	    	
 	    }
+	   
+	    @FXML
+	    void btnWarenkorbAnzeigen_clicked(ActionEvent event) {
+			try {
+				pnlWarenkorbAnzeigen.setVisible(true);
+			} catch (Exception e) {
+				lblInfoProdAus.setText("Es ist ein Fehler aufgetreten: "+e.getMessage());
+			}
+	    	
+		}
 	    
-	    
+	    @FXML
+	    void btnCheckout_clicked(ActionEvent event) {
+
+	    }	    
 	}
 	
 	
