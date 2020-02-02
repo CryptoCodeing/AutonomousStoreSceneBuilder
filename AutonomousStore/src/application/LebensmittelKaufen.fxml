@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="709.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LebensmittelController">
+   <children>
+      <AnchorPane prefHeight="653.0" prefWidth="573.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Bitte wählen Sie Ihr Produkt">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="195.0" fitWidth="195.0" layoutX="323.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../OneDrive/Desktop/AutonomousStore/185691_i01.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="218.0" fitWidth="195.0" layoutX="34.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../OneDrive/Desktop/AutonomousStore/coca-cola-boite-slim-33-cl-x24.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="203.0" fitWidth="220.0" layoutX="29.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../OneDrive/Desktop/AutonomousStore/snickers.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="215.0" fitWidth="177.0" layoutX="323.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../OneDrive/Desktop/AutonomousStore/9166B8nZF1L._AC_SX466_.jpg" />
+               </image>
+            </ImageView>
+            <CheckBox layoutX="34.0" layoutY="310.0" mnemonicParsing="false" text="Coca Cola 200ml CHF 2.95" />
+            <CheckBox layoutX="29.0" layoutY="611.0" mnemonicParsing="false" text="Snickers CHF 1.95" />
+            <CheckBox layoutX="323.0" layoutY="611.0" mnemonicParsing="false" text="Haribo Goldbären CHF 1.95" />
+            <CheckBox layoutX="323.0" layoutY="310.0" mnemonicParsing="false" text="Orbit Kaugummi CHF 2.95" />
+            <Button fx:id="btnZurueckZuProdAusVONZigare" layoutX="339.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnZurueckZuProdAusVONZigare_clicked" text="Zurück zur Produkte Auswahl" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnZigarettenWarenkorbHinzu" layoutX="373.0" layoutY="650.0" mnemonicParsing="false" onAction="#btnZigarettenWarenkorbHinzu_clicked" prefHeight="38.0" prefWidth="177.0" text="Zum Warenkorb hinzufügen" />
+      <Label layoutX="14.0" layoutY="659.0" text="Stückzahl pro Auswahl">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtMengeproAuswahl" layoutX="180.0" layoutY="667.0" prefHeight="25.0" prefWidth="30.0" />
+   </children>
+</AnchorPane>
