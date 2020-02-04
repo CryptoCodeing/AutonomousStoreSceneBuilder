@@ -28,25 +28,16 @@ public class LoginController {
 	    
 	    @FXML
 	    void btnAnmelden_clicked (ActionEvent event) {
-
-
-	  
 		    	//Check ob Kunden id geschrieben wurde
 		    	Integer iKundennummer = 0;
 		    	
-		    	
-	    	
-
 	    	try {
-
-				
-	    		
 	    		// Check ob Kundennummereingabe durch Kunde leer ist
-	    	if (txtKundennummer.getText().isEmpty()) 
-    		{lblInfo.setText("Bitte erfassen Sie Ihre Kundennummer oder registrieren Sie sich, "
-    				+ "sofern Sie keine Kundennummer besitzen.");   
-    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);		
-    		return;}  			      	    	
+		    	if (txtKundennummer.getText().isEmpty()) 
+	    		{lblInfo.setText("Bitte erfassen Sie Ihre Kundennummer oder registrieren Sie sich, "
+	    				+ "sofern Sie keine Kundennummer besitzen.");   
+	    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);		
+	    		return;}  			      	    	
 	    	
 	
 	    		// User eingabe in Variable abfüllen
@@ -58,14 +49,15 @@ public class LoginController {
 				// Scene ProdukteAuswahl anzeigen
 	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
 				Parent root = FXMLLoader.load(getClass().getResource("ProdukteAuswahl.fxml"));
-				Scene scene = new Scene(root,1300,900);
+				Scene scene = new Scene(root,1300,800);
 				StageRegist.setScene(scene);
 				StageRegist.show();			
 				//Insert der KundenID und lösen einer WarenkorbID 
 				iWarenkorbID = SQLDBReadWrite.INSERTWarenkorbGenID(iKundennummer) ;		
 				
 				} 
-				else {
+				else 
+				{
 		    		lblInfo.setText("Diese Kundennummer ist nicht vorhanden. "
 		    				+ "Bitte erfassen Sie eine gültige Kundennummer");
 		    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);				

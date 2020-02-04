@@ -60,6 +60,7 @@ public class ZigarettenController {
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
      	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
      	btnZigarettenWarenkorbHinzu.setDisable(true);
+     	txtMengeproAuswahl.setDisable(true);
     	}
     	
     	if (cbxLuckyStrike810.isSelected()) {
@@ -74,6 +75,7 @@ public class ZigarettenController {
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
      	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
      	btnZigarettenWarenkorbHinzu.setDisable(true);
+     	txtMengeproAuswahl.setDisable(true);
 		}
     	
     	if (cbxCamel820.isSelected()) {
@@ -88,6 +90,7 @@ public class ZigarettenController {
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
      	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
      	btnZigarettenWarenkorbHinzu.setDisable(true);
+     	txtMengeproAuswahl.setDisable(true);
     	}
     	
     	if (cbxMarlboro900.isSelected()) {
@@ -102,6 +105,7 @@ public class ZigarettenController {
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
      	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
      	btnZigarettenWarenkorbHinzu.setDisable(true);
+     	txtMengeproAuswahl.setDisable(true);
     	}
     	
     	} 

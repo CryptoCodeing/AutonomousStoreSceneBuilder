@@ -60,6 +60,7 @@ public class LebensmittelController {
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
     	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
     	btnLebensmittelWarenkorbHinzu.setDisable(true);
+    	txtMengeproAuswahl.setDisable(true);
     	}
     	
     	if (cbxGoldbaeren195.isSelected()) {
@@ -74,6 +75,7 @@ public class LebensmittelController {
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
      	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
      	btnLebensmittelWarenkorbHinzu.setDisable(true);
+     	txtMengeproAuswahl.setDisable(true);
 		}
     	
     	if (cbxCocaCola295.isSelected()) {
@@ -88,6 +90,7 @@ public class LebensmittelController {
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
      	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
      	btnLebensmittelWarenkorbHinzu.setDisable(true);
+     	txtMengeproAuswahl.setDisable(true);
 		}
     	
     	if (cbxOrbit310.isSelected()) {
@@ -102,6 +105,7 @@ public class LebensmittelController {
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
      	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
      	btnLebensmittelWarenkorbHinzu.setDisable(true);
+     	txtMengeproAuswahl.setDisable(true);
 		}
     	
     	} 

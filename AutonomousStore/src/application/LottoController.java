@@ -87,13 +87,17 @@ public class LottoController {
 	             		iVerbleibendeSpiele = iAnzahlSpiele-iGespielteSpiele;
 	             		lblInfo.setText("Sie haben noch "+iVerbleibendeSpiele+". Tipps.");             		
 	             		lblInfo.setFont(new Font("Arial", 14));
-             		
+	             		
+	             		txtTippZahlen.setText("");	             		
         	if (iAnzahlSpiele==iGespielteSpiele)
         	{
         	lblInfo.setText(iAnzahlSpiele+". Tipps wurden dem Warenkorb hinzugefügt, Viel Glück!");
         	lblInfo.setFont(new Font("Arial", 16));
         	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
         	btnTippAbgeben.setDisable(true);
+        	txtTippZahlen.setDisable(true);
+        	txtAnzahlSpiele.setDisable(true);
+        	btnZahlenAngeben.setDisable(true);
         	}	  	
     }
     
