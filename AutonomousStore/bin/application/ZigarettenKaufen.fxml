@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="709.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ZigarettenController">
+<AnchorPane prefHeight="722.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ZigarettenController">
    <children>
       <AnchorPane prefHeight="653.0" prefWidth="573.0">
          <children>
-            <Label layoutX="14.0" layoutY="14.0" text="Bitte wählen Sie Ihr Produkt">
+            <Label fx:id="lblInfo" layoutX="14.0" layoutY="14.0" text="Bitte wählen Sie Ihr Produkt">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -36,19 +36,19 @@
                   <Image url="@../../bin/Images/marlboro-rot.jpg" />
                </image>
             </ImageView>
-            <CheckBox layoutX="34.0" layoutY="310.0" mnemonicParsing="false" text="American Spirit Orange CHF 7.70" />
-            <CheckBox layoutX="29.0" layoutY="611.0" mnemonicParsing="false" text="Lucky Strike Blau CHF 8.10" />
-            <CheckBox layoutX="323.0" layoutY="611.0" mnemonicParsing="false" text="Marlboro Rot CHF 9.00" />
-            <CheckBox layoutX="323.0" layoutY="310.0" mnemonicParsing="false" text="Camel Filter CHF 8.20" />
-            <Button fx:id="btnZurueckZuProdAusVONZigare" layoutX="339.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnZurueckZuProdAusVONZigare_clicked" text="Zurück zur Produkte Auswahl" />
+            <CheckBox fx:id="cbxAmericanSprit770" layoutX="34.0" layoutY="310.0" mnemonicParsing="false" text="American Spirit Orange CHF 7.70" />
+            <CheckBox fx:id="cbxLuckyStrike810" layoutX="29.0" layoutY="611.0" mnemonicParsing="false" text="Lucky Strike Blau CHF 8.10" />
+            <CheckBox fx:id="cbxMarlboro900" layoutX="323.0" layoutY="611.0" mnemonicParsing="false" text="Marlboro Rot CHF 9.00" />
+            <CheckBox fx:id="cbxCamel820" layoutX="323.0" layoutY="310.0" mnemonicParsing="false" text="Camel Filter CHF 8.20" />
          </children>
       </AnchorPane>
-      <Button fx:id="btnZigarettenWarenkorbHinzu" layoutX="373.0" layoutY="650.0" mnemonicParsing="false" onAction="#btnZigarettenWarenkorbHinzu_clicked" prefHeight="38.0" prefWidth="177.0" text="Zum Warenkorb hinzufügen" />
-      <Label layoutX="14.0" layoutY="659.0" text="Stückzahl pro Auswahl">
+      <Button fx:id="btnZigarettenWarenkorbHinzu" layoutX="219.0" layoutY="650.0" mnemonicParsing="false" onAction="#btnZigarettenWarenkorbHinzu_clicked" prefHeight="38.0" prefWidth="177.0" text="Zum Warenkorb hinzufügen" />
+      <Label layoutX="14.0" layoutY="659.0" text="Stückzahl pro Auswahl:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtMengeproAuswahl" layoutX="180.0" layoutY="667.0" prefHeight="25.0" prefWidth="30.0" />
+      <TextField fx:id="txtMengeproAuswahl" layoutX="172.0" layoutY="657.0" prefHeight="25.0" prefWidth="30.0" />
+      <Button fx:id="btnZurueckZuProdAusVONZigare" layoutX="396.0" layoutY="696.0" mnemonicParsing="false" onAction="#btnZurueckZuProdAusVONZigare_clicked" text="Zurück zur Produkte Auswahl" />
    </children>
 </AnchorPane>

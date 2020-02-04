@@ -17,7 +17,7 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Button fx:id="btnAnmelden" layoutX="7.0" layoutY="252.0" mnemonicParsing="false" onAction="#btnAnmelden_clicked" prefHeight="51.0" prefWidth="118.0" text="Anmelden" />
+            <Button fx:id="btnAnmelden" defaultButton="true" layoutX="7.0" layoutY="252.0" mnemonicParsing="false" onAction="#btnAnmelden_clicked" prefHeight="51.0" prefWidth="118.0" text="Anmelden" />
             <Button fx:id="btnRegistrierung" layoutX="230.0" layoutY="252.0" mnemonicParsing="false" onAction="#btnRegistrierung_clicked" prefHeight="51.0" prefWidth="118.0" text="Registrieren" />
             <Label id="Multi Line suechi" fx:id="lblInfo" alignment="TOP_LEFT" layoutX="7.0" layoutY="8.0" prefHeight="45.0" prefWidth="341.0" text="Herzlich Wilkommen im HWZ Autonomous Store">
                <font>

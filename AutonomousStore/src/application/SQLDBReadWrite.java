@@ -1,11 +1,13 @@
 	package application;	
 
 	import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import javafx.scene.control.Label;
 
@@ -118,7 +120,7 @@ import javafx.scene.control.Label;
 
 	    }
 	    //Erstellen eienes Warenkorb
-	    public static int INSERTWarenkorbGenID(Integer iKundenID)	   
+	    public static Integer INSERTWarenkorbGenID(Integer iKundenID)	   
 	    {
 	    	ResultSet resultSet = null;
 	    	String tInsertSQL = "";
@@ -195,7 +197,7 @@ import javafx.scene.control.Label;
 	        return rsSELECTallKundedaten;
 
 	    }
-	   // SELECT aller Warenkorb Positionen
+	    // SELECT aller Warenkorb Positionen
 	    public static  ResultSet SELECTTWarenkorbPositionen(Integer iref_Warenkorb)
 	    {
 	        
@@ -203,13 +205,13 @@ import javafx.scene.control.Label;
 	    	String tselectSQL;
 
 	    	tselectSQL =    " SELECT * " +
-	    					" FROM TWarenkorbPositionen" +
+	    					" FROM TWarenkorbPositionen " +
 	    					" WHERE iref_Warenkorb = " + iref_Warenkorb.toString();
 	    		    
 	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
-	        PreparedStatement selectKundeDaten = connection.prepareStatement(tselectSQL);) 
+	        PreparedStatement selectWarenkorbPositionen = connection.prepareStatement(tselectSQL);) 
 	        {
-	        	rsSELECTWarenkorbPositionen = selectKundeDaten.executeQuery();	           			        			        			
+	        	rsSELECTWarenkorbPositionen = selectWarenkorbPositionen.executeQuery();	           			        			        			
 	        }
 	        	catch (SQLException e) {
 	        		e.printStackTrace();
@@ -219,6 +221,84 @@ import javafx.scene.control.Label;
 	        return rsSELECTWarenkorbPositionen;
 
 	    }		
+	    //SELECT und abfüllen von Warenkorb Total Summe
+	    public static float WarenkorbTOTALermitteln (Integer iref_Warenkorb) {
+	    	
+	    	float fWarenkorbTotal = 0.0f ;	    	
+	    	ResultSet rsWarenkorbTOTAL = null;
+	    	String tselectSumSQL;
+
+	    	tselectSumSQL = " SELECT sum(fPreisPositionTotal) " +
+	    					" FROM TWarenkorbPositionen " +
+	    					" WHERE iref_Warenkorb = " + iref_Warenkorb.toString();
+	    		    
+	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
+	        PreparedStatement selectWarenkorbPositionen = connection.prepareStatement(tselectSumSQL);) 
+	        {
+	        	rsWarenkorbTOTAL = selectWarenkorbPositionen.executeQuery();
+	        	rsWarenkorbTOTAL.next();
+	        	
+	        	fWarenkorbTotal = rsWarenkorbTOTAL.getFloat(1);
+	        }
+	        	catch (SQLException e) {
+	        		e.printStackTrace();
+	        }
+
+	    	
+	    	return fWarenkorbTotal;
+	    }
+	    //Alterscheck für Zigaretten Kauf
+	    public static  boolean Alterscheck(Integer iKundenummer)
+	    {	ResultSet resultSet = null;
+	    	String tselectSQL;
+	    	Date dGeburtsdatum;
+	    	//Date dDatumGrenze = 06/02/2004  ;
+	    	boolean bUservorhanden = false ;
+	    	
+	    	
+	    	tselectSQL =    " SELECT dGeburtsdatum " +
+	    					" FROM Kundendaten" +
+	    					" WHERE iKundennummer = " + iKundenummer.toString();
+	    		    
+	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
+	        PreparedStatement selectKundeID = connection.prepareStatement(tselectSQL, Statement.RETURN_GENERATED_KEYS);) 
+	        {
+	        	resultSet = selectKundeID.executeQuery();
+	        	
+	        	
+	        		
+	        		try 
+	        		{	   
+	        			resultSet.next();
+	        			dGeburtsdatum = resultSet.getObject("dGeburtsdatum",Date.class);
+	        			
+	        		
+	        			
+	        		}
+	        		catch(Exception e)
+	        		{
+	        		System.out.println("Es ist ein Fehler aufgetreten" + e.getMessage());
+
+	        		}
+	        			        			
+
+	        }
+	        
+	       
+	        	catch (SQLException e) {
+	        		e.printStackTrace();
+	        }
+
+			
+	        return bUservorhanden;
+
+	    }
+	  
+	    
+	    
+	    
+	    
+	    
 	}
 	    
 	
