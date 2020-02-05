@@ -46,6 +46,8 @@ public class LebensmittelController {
     	Integer iAnzahl = 0;
     	float fPreisPositionTotal = 0.00f;   
     	
+    	String tAusgabeProdukteHinzugefuegt = "Ihre Produkte wurden erfolgreich zum Warenkorb hinzugefügt!";
+    	
     	try {
     		
     	if(cbxSnickers170.isSelected()) {    		
@@ -58,7 +60,8 @@ public class LebensmittelController {
          	fPreisPositionTotal = iAnzahl * fPreisProStueck;
  		
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
-    	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
+    	lblInfo.setText(tAusgabeProdukteHinzugefuegt);
+    	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
     	btnLebensmittelWarenkorbHinzu.setDisable(true);
     	txtMengeproAuswahl.setDisable(true);
     	}
@@ -73,7 +76,8 @@ public class LebensmittelController {
          	fPreisPositionTotal = iAnzahl * fPreisProStueck;
  		
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
-     	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
+     	lblInfo.setText(tAusgabeProdukteHinzugefuegt);
+     	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
      	btnLebensmittelWarenkorbHinzu.setDisable(true);
      	txtMengeproAuswahl.setDisable(true);
 		}
@@ -88,7 +92,8 @@ public class LebensmittelController {
          	fPreisPositionTotal = iAnzahl * fPreisProStueck;
  		
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
-     	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
+     	lblInfo.setText(tAusgabeProdukteHinzugefuegt);
+     	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
      	btnLebensmittelWarenkorbHinzu.setDisable(true);
      	txtMengeproAuswahl.setDisable(true);
 		}
@@ -103,7 +108,8 @@ public class LebensmittelController {
          	fPreisPositionTotal = iAnzahl * fPreisProStueck;
  		
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
-     	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
+     	lblInfo.setText(tAusgabeProdukteHinzugefuegt);
+     	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
      	btnLebensmittelWarenkorbHinzu.setDisable(true);
      	txtMengeproAuswahl.setDisable(true);
 		}

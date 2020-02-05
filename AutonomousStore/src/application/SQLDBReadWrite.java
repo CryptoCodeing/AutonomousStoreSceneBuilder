@@ -266,7 +266,9 @@ import javafx.scene.control.Label;
 	        	resultSet = selectKundeID.executeQuery();
 	        	
 	        	
-	        		
+	        		// TODO Date Vergleich muss implementiert werden..¨.
+	        	
+	        	
 	        		try 
 	        		{	   
 	        			resultSet.next();
@@ -293,12 +295,7 @@ import javafx.scene.control.Label;
 	        return bUservorhanden;
 
 	    }
-	  
-	    
-	    
-	    
-	    
-	    
+	     
 	}
 	    
 	

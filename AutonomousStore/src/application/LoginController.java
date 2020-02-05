@@ -26,10 +26,12 @@ public class LoginController {
 	    
 	    static Integer iWarenkorbID = 0;
 	    
+	    static Integer iKundennummer = 0;
+	    
 	    @FXML
 	    void btnAnmelden_clicked (ActionEvent event) {
 		    	//Check ob Kunden id geschrieben wurde
-		    	Integer iKundennummer = 0;
+		    	
 		    	
 	    	try {
 	    		// Check ob Kundennummereingabe durch Kunde leer ist

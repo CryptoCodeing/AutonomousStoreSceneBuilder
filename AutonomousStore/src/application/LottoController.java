@@ -66,20 +66,27 @@ public class LottoController {
 	 	//WarenkorPosition Daten
     	Integer iref_Warenkorb = 0;
     	Integer iArtikelnummer = 0;
-    	String tArtikelbezeichnungBuild = "";
-    	String tArtikelbezeichnung = "";
+    	String tArtikelbezeichnung = ("Lotozahlentipp: " + txtTippZahlen.getText());
     	float fPreisProStueck = 0;
     	Integer iAnzahl = 0;
     	float fPreisPositionTotal = 0.00f;       	            		
-         		    		
+         		    try {		
 	         		iref_Warenkorb = LoginController.iWarenkorbID;
-	             	iArtikelnummer = 10101010;
-	             	tArtikelbezeichnungBuild = ("Lotozahlentipp: " + txtTippZahlen.getText());
-	             	tArtikelbezeichnung = tArtikelbezeichnungBuild;
+	             	iArtikelnummer = 10101010;	             	
 	             	fPreisProStueck = 5.5f;
 	             	iAnzahl = 1;
 	             	fPreisPositionTotal = 5.5f;
+	             	
+	             	txtTippZahlen.getText();
          		
+	             	if(txtTippZahlen.getLength()!=6) {
+	             		lblInfo.setText("Es sind nur 6-stellige Zahlen gültig. Bitte Eingabe prüfen.");   
+	             		lblInfo.setTextFill(javafx.scene.paint.Color.RED);
+	             		return;}
+	             	
+	             	// Check ob eingabe nummerisch ist wenn nicht wird Exception Nex geworfen
+	             		Integer.parseInt(txtTippZahlen.getText());
+					 
              	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;
              	
 	             		iGespielteSpiele += 1;
@@ -87,6 +94,7 @@ public class LottoController {
 	             		iVerbleibendeSpiele = iAnzahlSpiele-iGespielteSpiele;
 	             		lblInfo.setText("Sie haben noch "+iVerbleibendeSpiele+". Tipps.");             		
 	             		lblInfo.setFont(new Font("Arial", 14));
+	             		lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
 	             		
 	             		txtTippZahlen.setText("");	             		
         	if (iAnzahlSpiele==iGespielteSpiele)
@@ -98,7 +106,20 @@ public class LottoController {
         	txtTippZahlen.setDisable(true);
         	txtAnzahlSpiele.setDisable(true);
         	btnZahlenAngeben.setDisable(true);
-        	}	  	
+        	}	       	
+         		    }
+         		   catch (NumberFormatException Nex)
+         		    {
+         			   lblInfo.setText("Bitte nur Zahlen 0-9 verwenden, keine Sonderzeichen.");
+         			   lblInfo.setTextFill(javafx.scene.paint.Color.RED);
+         		    }
+         		    
+         		    catch(Exception e)
+         		    {       		    	
+         		    	lblInfo.setText("Es ist ein Fehler aufgetreten: "+e.getMessage());
+         		    	lblInfo.setTextFill(javafx.scene.paint.Color.RED);
+         		    }
+         		  
     }
     
 	    @FXML
@@ -114,7 +135,7 @@ public class LottoController {
 			
 			catch(Exception e) {
 				e.printStackTrace();
-		}	
+								}	
 	    	
 	    		}
 												

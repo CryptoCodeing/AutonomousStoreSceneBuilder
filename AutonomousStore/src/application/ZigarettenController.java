@@ -44,7 +44,8 @@ public class ZigarettenController {
     	String tArtikelbezeichnung = "";
     	float fPreisProStueck = 0;
     	Integer iAnzahl = 0;
-    	float fPreisPositionTotal = 0.00f;   
+    	float fPreisPositionTotal = 0.00f; 
+    	String tAusgabeProdukteHinzugefuegt = "Ihre Produkte wurden erfolgreich zum Warenkorb hinzugefügt!";
     	
     	try {
     		
@@ -58,7 +59,8 @@ public class ZigarettenController {
          	fPreisPositionTotal = iAnzahl * fPreisProStueck;
  		
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
-     	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
+     	lblInfo.setText(tAusgabeProdukteHinzugefuegt);
+     	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
      	btnZigarettenWarenkorbHinzu.setDisable(true);
      	txtMengeproAuswahl.setDisable(true);
     	}
@@ -73,7 +75,8 @@ public class ZigarettenController {
          	fPreisPositionTotal = iAnzahl * fPreisProStueck;
  		
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
-     	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
+     	lblInfo.setText(tAusgabeProdukteHinzugefuegt);
+     	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
      	btnZigarettenWarenkorbHinzu.setDisable(true);
      	txtMengeproAuswahl.setDisable(true);
 		}
@@ -88,7 +91,8 @@ public class ZigarettenController {
          	fPreisPositionTotal = iAnzahl * fPreisProStueck;
  		
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
-     	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
+     	lblInfo.setText(tAusgabeProdukteHinzugefuegt);
+     	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
      	btnZigarettenWarenkorbHinzu.setDisable(true);
      	txtMengeproAuswahl.setDisable(true);
     	}
@@ -103,7 +107,8 @@ public class ZigarettenController {
          	fPreisPositionTotal = iAnzahl * fPreisProStueck;
  		
      	SQLDBReadWrite.INSERTWarenkorbPosition( iref_Warenkorb,  iArtikelnummer,  tArtikelbezeichnung, fPreisProStueck,  iAnzahl, fPreisPositionTotal) ;    
-     	lblInfo.setText("Ihrem Produkte wurden erfolgreich zum Warenkorb hinzugefügt");
+     	lblInfo.setText(tAusgabeProdukteHinzugefuegt);
+     	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
      	btnZigarettenWarenkorbHinzu.setDisable(true);
      	txtMengeproAuswahl.setDisable(true);
     	}

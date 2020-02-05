@@ -1,7 +1,4 @@
 package application;
-import java.sql.ResultSet;
-
-import com.sun.crypto.provider.RSACipher;
 
 import javafx.event.*;
 import javafx.fxml.FXML;
@@ -17,43 +14,40 @@ import javafx.stage.Stage;
 public class ProdAusController {
 
 	
-	 	@FXML
-	    private Button btnCheckout;
+	@FXML
+    private Button btnCheckout;
 
-	    @FXML
-	    private ImageView imgZigaretten;
+    @FXML
+    private ImageView imgZigaretten;
 
-	    @FXML
-	    private Button btnLottoSpielen;
+    @FXML
+    private Label lblInfo;
 
-	    @FXML
-	    private Label lblKundennummer;
+    @FXML
+    private Button btnLottoSpielen;
 
-	    @FXML
-	    private Button btnZigarettenKaufen;
+    @FXML
+    private Button btnZigarettenKaufen;
 
-	    @FXML
-	    private Label lblWarenkorbInfo;
+    @FXML
+    private Label lblWarenkorbnummerAnzeige;
 
-	    @FXML
-	    private Button btnLebensmittelKaufen;
+    @FXML
+    private Label lblWarenkorbInfo;
 
-	    @FXML
-	    private ListView<ResultSet> listviewWarenkorbPositionen;
+    @FXML
+    private Button btnLebensmittelKaufen;
 
-	    @FXML
-	    private Label lblInfoProdAus;
+    @FXML
+    private ListView<?> listviewWarenkorbPositionen;
 
-	    @FXML
-	    private Button btnZurueckZUAnmelden;
+    @FXML
+    private Button btnWarenkorbAnzeigen;
 
-	    @FXML
-	    private Button btnWarenkorbAnzeigen;
+    @FXML
+    private AnchorPane pnlWarenkorbAnzeigen;
 
-	    @FXML
-	    private AnchorPane pnlWarenkorbAnzeigen;
-
-	    Integer iref_Warenkorb=LoginController.iWarenkorbID;
+    Integer iref_Warenkorb=LoginController.iWarenkorbID;
 	    
 	    //Kunden Detail Daten Anzeigen 
 	    public static void KundeDetailAnzeigen(Integer iKundenummer)
@@ -62,7 +56,7 @@ public class ProdAusController {
 	    	  
 	    		//Muss so oder so nochmals ein SQL gwemacht werden der Kudne gibt nur die ID ein der Rest wird mit SQL gemacht 
 	    	try {
-				    	 SQLDBReadWrite.SELECTTKundenDaten(iKundenummer);
+				    	// SQLDBReadWrite.SELECTTKundenDaten(iKundenummer);
 				    	 
 				 //LM so kann Warenkorb ID gehot werden  Integer iWarenkorbID =  LoginController.iWarenkorbID;
 				    	 
@@ -127,32 +121,14 @@ try {
 				e.printStackTrace();
 			}
 	    }
-	    
-	    @FXML
-	    void btnZurueckZUAnmelden_clicked(ActionEvent event) {
-
-	    	try {
-				
-	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
-				Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-				Scene scene = new Scene(root);
-				StageRegist.setScene(scene);
-				StageRegist.show();
-			} 
-			
-			catch(Exception e) {
-				e.printStackTrace();
-			}
-	    	
-	    }
 	   
 	    @FXML
 	    void btnWarenkorbAnzeigen_clicked(ActionEvent event) {
 			try {	
-				String test;
+				//String test;
 				
-				ResultSet rsWarenkorbPositionen;				
-				rsWarenkorbPositionen= SQLDBReadWrite.SELECTTWarenkorbPositionen(iref_Warenkorb);
+				//ResultSet rsWarenkorbPositionen;				
+				//rsWarenkorbPositionen= SQLDBReadWrite.SELECTTWarenkorbPositionen(iref_Warenkorb);
 				
 			//	while (
 						//rsWarenkorbPositionen.next();
@@ -160,15 +136,28 @@ try {
 			//	{
 				//test = rsWarenkorbPositionen.getString(1);
 					
-					//lblInfoProdAus.setText(test);
+					//lblInfo.setText(test);
 					
 				//listviewWarenkorbPositionen.getItems().addAll(rsWarenkorbPositionen);				
-	//			}
+	//			}		
+//				listviewWarenkorbPositionen.set
+//				
+//
+//				while (rsWarenkorbPositionen.next()) {
+//				    ResultSet mExample = new Resultset();      
+//				    mExample.ID = resSet.getInt("ExampleID");
+//				    mExample.name = resSet.getString("ExampleName");
+//				    [..]
+//				    mExampleList.add(mExample);
+//				}
+//				TODO Abfüllen von Resultset in Listview
+//				
 				
+ 				lblWarenkorbnummerAnzeige.setText(Integer.toString(iref_Warenkorb));						
 				pnlWarenkorbAnzeigen.setVisible(true);
 				} 
 			catch (Exception e) {
-				lblInfoProdAus.setText("Es ist ein Fehler aufgetreten: "+e.getMessage());
+				lblInfo.setText("Es ist ein Fehler aufgetreten: "+e.getMessage());
 			}
 	    	
 		
@@ -179,19 +168,21 @@ try {
 	    @FXML
 	    void btnCheckout_clicked(ActionEvent event) {
 
-	    	float fWarenkorbTotal = 0 ;
+	    	float fWarenkorbTotal = 0;
+	    	Integer iKundennummer = 0;
 	    	
 	    	
+	    	iKundennummer = LoginController.iKundennummer;
 	    	fWarenkorbTotal = SQLDBReadWrite.WarenkorbTOTALermitteln(iref_Warenkorb);
+	    	lblInfo.setText("Ihrem Kundenkontonr: "+iKundennummer+", wurde der Betrag: "+fWarenkorbTotal +"CHF belastet. Herzlichen Dank für Ihren Einkauf. ");    	
+	    	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
 	    	
-	    	lblInfoProdAus.setText("Total des Warenkorbs: "+fWarenkorbTotal);
-	    	
-	    	
-	    	//lblInfoProdAus.setText("Der Betrag von: "+fWarenkorbTotal +"CHF wurde Ihrem Konto belastet. Vielen Dank für Ihren Einkauf ");
-	    	
-	    	
+	    	btnLebensmittelKaufen.setDisable(true);
+	    	btnLottoSpielen.setDisable(true);
+	    	btnWarenkorbAnzeigen.setDisable(true);
+	    	btnZigarettenKaufen.setDisable(true);
 	    }	    
-	}
+}
 	
 	
 
