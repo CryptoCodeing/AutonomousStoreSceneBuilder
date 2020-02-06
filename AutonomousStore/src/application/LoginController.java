@@ -61,7 +61,7 @@ public class LoginController {
 				else 
 				{
 		    		lblInfo.setText("Diese Kundennummer ist nicht vorhanden. "
-		    				+ "Bitte erfassen Sie eine gültige Kundennummer");
+		    				+ "\nBitte erfassen Sie eine gültige Kundennummer");
 		    		lblInfo.setTextFill(javafx.scene.paint.Color.RED);				
 				} 
 	    	}
