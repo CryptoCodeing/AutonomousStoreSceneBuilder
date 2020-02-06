@@ -168,13 +168,13 @@ try {
 	    @FXML
 	    void btnCheckout_clicked(ActionEvent event) {
 
-	    	float fWarenkorbTotal = 0;
+	    	double fWarenkorbTotal = 0;
 	    	Integer iKundennummer = 0;
 	    	
 	    	
 	    	iKundennummer = LoginController.iKundennummer;
 	    	fWarenkorbTotal = SQLDBReadWrite.WarenkorbTOTALermitteln(iref_Warenkorb);
-	    	lblInfo.setText("Ihrem Kundenkontonr: "+iKundennummer+", wurde der Betrag: "+fWarenkorbTotal +"CHF belastet. Herzlichen Dank für Ihren Einkauf. ");    	
+	    	lblInfo.setText("Ihrem Kundenkonto: "+iKundennummer+", wurde der Betrag: "+fWarenkorbTotal +"CHF belastet. Herzlichen Dank für Ihren Einkauf. ");    	
 	    	lblInfo.setTextFill(javafx.scene.paint.Color.GREEN);
 	    	
 	    	btnLebensmittelKaufen.setDisable(true);
