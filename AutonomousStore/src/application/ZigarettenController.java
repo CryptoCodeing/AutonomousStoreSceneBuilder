@@ -45,7 +45,7 @@ public class ZigarettenController {
     	float fPreisProStueck = 0;
     	Integer iAnzahl = 0;
     	float fPreisPositionTotal = 0.00f; 
-    	String tAusgabeProdukteHinzugefuegt = "Ihre Produkte wurden erfolgreich zum Warenkorb hinzugefügt!";
+    	String tAusgabeProdukteHinzugefuegt = "Ihre Auswahl wurde erfolgreich zum Warenkorb hinzugefügt!";
     	
     	try {
     		

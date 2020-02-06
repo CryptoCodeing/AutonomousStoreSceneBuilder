@@ -58,7 +58,7 @@ public class RegistrierungController {
     	{
 
     	    
-    		lblInfo.setText("Fehler: Bitte erfassen Sie einen Vornamen");
+    		lblInfo.setText("Fehler: Bitte erfassen Sie einen Vornamen!");
     		lblInfo.setTextFill(javafx.scene.paint.Color.RED);		
     		valid = false;
     		return;
@@ -66,7 +66,7 @@ public class RegistrierungController {
 
     	if(tNachname.equals(""))       	
         	{
-        		lblInfo.setText("Fehler: Bitte erfassen Sie einen Nachname !");
+        		lblInfo.setText("Fehler: Bitte erfassen Sie einen Nachnamen!");
         		lblInfo.setTextFill(javafx.scene.paint.Color.RED);	
         		
         		valid = false;
