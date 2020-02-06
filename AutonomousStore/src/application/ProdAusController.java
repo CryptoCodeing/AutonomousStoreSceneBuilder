@@ -90,16 +90,28 @@ public class ProdAusController {
 	    @FXML
 	    void btnZigarettenKaufen_clicked(ActionEvent event) {
 try {
+	boolean bAlterscheckPositiv = false; 
 				
-	    		Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
-				Parent root = FXMLLoader.load(getClass().getResource("ZigarettenKaufen.fxml"));
-				Scene scene = new Scene(root);
-				StageRegist.setScene(scene);
-				StageRegist.show();
+	    									
 				
-				// TODO Alterscheck
+			bAlterscheckPositiv =	SQLDBReadWrite.Alterscheck(LoginController.iKundennummer);
 				
-			} 
+			if (bAlterscheckPositiv)				
+			{
+			Stage StageRegist = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			Parent root = FXMLLoader.load(getClass().getResource("ZigarettenKaufen.fxml"));
+			Scene scene = new Scene(root);
+			StageRegist.setScene(scene);
+			StageRegist.show();				
+			}
+			else
+			{
+			lblInfo.setText("Leider sind Sie zu Jung um Zigaretten kaufen zu dürfen!");
+			lblInfo.setTextFill(javafx.scene.paint.Color.RED);
+			btnZigarettenKaufen.setDisable(true);				
+			}
+						
+				} 
 			
 			catch(Exception e) {
 				e.printStackTrace();

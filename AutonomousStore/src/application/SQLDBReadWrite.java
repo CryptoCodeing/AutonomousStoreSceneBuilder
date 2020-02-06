@@ -251,39 +251,29 @@ import javafx.scene.control.Label;
 	    public static  boolean Alterscheck(Integer iKundenummer)
 	    {	ResultSet resultSet = null;
 	    	String tselectSQL;
-	    	Date dGeburtsdatum;
-	    	//Date dDatumGrenze = 06/02/2004  ;
-	    	boolean bUservorhanden = false ;
+	    	boolean bAlterscheckPositiv = false;
 	    	
 	    	
 	    	tselectSQL =    " SELECT dGeburtsdatum " +
-	    					" FROM Kundendaten" +
-	    					" WHERE iKundennummer = " + iKundenummer.toString();
+	    					"   FROM Kundendaten" +
+	    					"  WHERE iKundennummer = "+iKundenummer.toString()+" AND DATEADD(year,16,dGeburtsdatum) < getdate()  " ;
 	    		    
 	        try (Connection connection = DriverManager.getConnection(tconnectionUrl);
-	        PreparedStatement selectKundeID = connection.prepareStatement(tselectSQL, Statement.RETURN_GENERATED_KEYS);) 
+	        PreparedStatement selectdGeburtsdatum = connection.prepareStatement(tselectSQL, Statement.RETURN_GENERATED_KEYS);) 
 	        {
-	        	resultSet = selectKundeID.executeQuery();
+	        	resultSet = selectdGeburtsdatum.executeQuery();
+        		
 	        	
-	        	
-	        		// TODO Date Vergleich muss implementiert werden..¨.
-	        	
-	        	
-	        		try 
-	        		{	   
-	        			resultSet.next();
-	        			dGeburtsdatum = resultSet.getObject("dGeburtsdatum",Date.class);
-	        			
+	        	if(resultSet.next())
+	        			{
+	        				bAlterscheckPositiv = true;	        				
+	        			}
+	        	else
+	        	{
+	        		bAlterscheckPositiv = false;
+				}
 	        		
-	        			
-	        		}
-	        		catch(Exception e)
-	        		{
-	        		System.out.println("Es ist ein Fehler aufgetreten" + e.getMessage());
-
-	        		}
-	        			        			
-
+	        	
 	        }
 	        
 	       
@@ -292,7 +282,7 @@ import javafx.scene.control.Label;
 	        }
 
 			
-	        return bUservorhanden;
+	        return bAlterscheckPositiv;
 
 	    }
 	     
